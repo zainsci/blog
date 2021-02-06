@@ -26,6 +26,25 @@ daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 <span class="token punctuation">..</span>.
 new-user:x:1000:1000::/home/new-user:/bin/sh</code></pre></div>
 <p>You may need root access if you are not logged in as the admin to create a user. <code class="language-text">useradd</code> command also accepts some options to add to the new user like adding expiry date for the user of creating home directory for the user to login to.</p>
+<p>There is also another command that is easier for people that are new to Linux to create users. It is <code class="language-text">adduser</code> command. It create the defualt home dir for other necessary things for a new user that you have to do manually when creating a user with <code class="language-text">useradd</code> command. It works same as the first command.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">root@User:/$ adduser another-new-user
+Adding user <span class="token variable"><span class="token variable">`</span>another-new-user' <span class="token punctuation">..</span>.
+Adding new group <span class="token variable">`</span></span>another-new-user<span class="token string">' (1001) ...
+Adding new user <span class="token variable"><span class="token variable">`</span>another-new-user' <span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">)</span> with group <span class="token variable">`</span></span>another-new-user'</span> <span class="token punctuation">..</span>.
+Creating home directory <span class="token variable"><span class="token variable">`</span>/home/another-new-user' <span class="token punctuation">..</span>.
+Copying files from <span class="token variable">`</span></span>/etc/skel' <span class="token punctuation">..</span>.
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information <span class="token keyword">for</span> another-new-user
+Enter the new value, or press ENTER <span class="token keyword">for</span> the default
+        Full Name <span class="token punctuation">[</span><span class="token punctuation">]</span>: New User
+        Room Number <span class="token punctuation">[</span><span class="token punctuation">]</span>: New User Room Number
+        Work Phone <span class="token punctuation">[</span><span class="token punctuation">]</span>: New User Work Number
+        Home Phone <span class="token punctuation">[</span><span class="token punctuation">]</span>: New User Phone Number
+        Other <span class="token punctuation">[</span><span class="token punctuation">]</span>: Others
+Is the information correct? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span> Y</code></pre></div>
+<p>You see that it will ask some questions about the newly created user and assigns it to a new group by itself. All these things you have to do manually if created with <code class="language-text">useradd</code> command.</p>
 <h3>Deleting a User</h3>
 <p>To delete a user first you need to have admin access and them type <code class="language-text">deluser</code> command with users name as the arugment.</p>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">root@User:/$ deluser new-user</code></pre></div>
