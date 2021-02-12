@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Gatsby.js and Java. This blog is where I post what I learn in a day about programming and language I am currently learning]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Feb 2021 16:16:15 GMT</lastBuildDate><item><title><![CDATA[Day 42 - Nertwork Scanning With Nmap]]></title><description><![CDATA[Nmap short for Network Mapper is a command-line utility used to scan large networks as well as small hosts. These scans are done using IP…]]></description><link>https://zainsci.github.io/blog/day-42/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-42/</guid><pubDate>Thu, 11 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Nmap short for Network Mapper is a command-line utility used to scan large networks as well as small hosts. These scans are done using IP packets that are sent to the host network or device and the response packets then are analyzed by the nmap. Nmap is a must if anyone wants to be better at networking.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Gatsby.js and Java. This blog is where I post what I learn in a day about programming and language I am currently learning]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 12 Feb 2021 16:15:27 GMT</lastBuildDate><item><title><![CDATA[Day 43]]></title><description><![CDATA[There is this command called  that I wrote about in Day 36. It is used to find all the matches of a given text or regex from the given text…]]></description><link>https://zainsci.github.io/blog/day-43/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-43/</guid><pubDate>Fri, 12 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;There is this command called &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt; that I wrote about in &lt;a href=&quot;/blog/day-36/&quot;&gt;Day 36&lt;/a&gt;. It is used to find all the matches of a given text or regex from the given text file or from the output of some other command. If a single word like &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt; is typed as the argument to grep it will only look got that word and nothing more but that is not helpful at all when you want to search for text that you don’t even know what it is or looks like. For example you want to find all the emails from a large text and some have .edu or other domain in front of them then it will be very difficult to extract all the emails from that file without lossing some.&lt;/p&gt;
+&lt;p&gt;Thats where Regular Expressions or regex comes to help. Regular Expressions are used to look for patterns in a large text and extract them. &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt; uses regex to find all the text that matches the regex pattern. In case of searching for emails using regex will make them easily extractable because all emails follow a same pattern, emailname@provider.topleveldomain.&lt;/p&gt;
+&lt;h2&gt;What Are Regular Expressions?&lt;/h2&gt;
+&lt;p&gt;Regular Expressions or more easy to read regex are sequence of characters that define a search pattern to find text from a large files of text. The concept of regex is as old as the FORTRAN Programming Language or maybe older.&lt;/p&gt;
+&lt;p&gt;Regex is mostly used to validate user data and search through a lrage body of text. A simple use case is validating emails when signing up or logging in to a website and the website checks if the entered emails follows the pattern.&lt;/p&gt;
+&lt;h2&gt;Regex Syntax&lt;/h2&gt;
+&lt;p&gt;I will be using grep command to look for patterns in the text of my post of Day36 and will do regex with examples.&lt;/p&gt;
+&lt;h3&gt;Matching Words&lt;/h3&gt;
+&lt;p&gt;First I will look for all the words that have “th” at the end of the word in the text file called day36.txt using grep and later will explain the pattern that I wrote to do so. To write the regex in the grep use double quotes and write the expression in them.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[a-zA-Z]*th &quot;&lt;/span&gt; day36.txt
+with
+path
+fifth&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is read like this: One or more characters (&lt;code class=&quot;language-text&quot;&gt;*&lt;/code&gt;) that are between the range &lt;code class=&quot;language-text&quot;&gt;a to z&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;A to Z&lt;/code&gt; (&lt;code class=&quot;language-text&quot;&gt;[a-zA-Z]&lt;/code&gt;) followed by &lt;code class=&quot;language-text&quot;&gt;th&lt;/code&gt; and a single space.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;[]&lt;/code&gt;&lt;/strong&gt; Mathces a single character from the characters that are inside the brackets
+If I only add a inside the brackets like this &lt;code class=&quot;language-text&quot;&gt;[a]&lt;/code&gt; it will only look for a single &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;*&lt;/code&gt;&lt;/strong&gt; Asterisk after the brackets matches one or more character that are inside the brackets&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;a-z&lt;/code&gt;&lt;/strong&gt; This means match characters between &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;z&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;A-Z&lt;/code&gt;&lt;/strong&gt; This means match characters between &lt;code class=&quot;language-text&quot;&gt;A&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;Z&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now if I replace &lt;code class=&quot;language-text&quot;&gt;th&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;l&lt;/code&gt; follwing will be the output.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[a-zA-Z]*l &quot;&lt;/span&gt; day36.txt
+will
+all
+useful
+peaceful
+terminal&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All the letters ending with &lt;code class=&quot;language-text&quot;&gt;l&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Searching For Domains&lt;/h3&gt;
+&lt;p&gt;This expression will look for all the domain names inside the text file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^[a-zA-Z0-9]*\.[a-zA-Z0-9]*&quot;&lt;/span&gt; day36.txt
+wikipedia.com
+google.com
+wikimedia.org
+github.com
+zainsci.github.io/blog
+another.blah
+newfile.txt
+some.com.au.aus.australia
+wikipedia.com
+google.com
+github.com
+some.com.au.aus.australia
+zainsci.github.io/blog
+zainsci.github.io/blog&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You see that it will not inclue &lt;code class=&quot;language-text&quot;&gt;fake-site.com&lt;/code&gt; in the results because &lt;code class=&quot;language-text&quot;&gt;-&lt;/code&gt; inside the brackets is a special character and to include the special characters to search for you have to escape them like I did for &lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt; in the expression.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;^&lt;/code&gt;&lt;/strong&gt; This means the starting position of the line&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;\.&lt;/code&gt;&lt;/strong&gt; &lt;code class=&quot;language-text&quot;&gt;\&lt;/code&gt; (Back Slash) to escape the &lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt; (Dot) because dot in regex means any character.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So if I didn’t excaped the dot the result would have been the full file.&lt;/p&gt;
+&lt;h3&gt;Not Mathcing Any Letter&lt;/h3&gt;
+&lt;p&gt;Adding &lt;code class=&quot;language-text&quot;&gt;^&lt;/code&gt; inside the brackets will cause the expression to look for all the character that does not match the characters inside the brackets&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[^a-zA-Z0-9]&quot;&lt;/span&gt; day36.txt
+~
+&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+/
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;These are all the symbols that are written inside the text file.&lt;/p&gt;
+&lt;h3&gt;Matching Word Between Mentioned Numbers&lt;/h3&gt;
+&lt;p&gt;To match words that are in the specifeid length in the text file I will use the following expression.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; [a-z]{5} &quot;&lt;/span&gt; day36.txt
+fifth
+other
+about
+needs
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is like “find all words of length five between a and z”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;{min, max}&lt;/code&gt;&lt;/strong&gt; Curly Brackets define the range of letter to look for&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;{5}&lt;/code&gt;&lt;/strong&gt; = five characters&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;{5, 9}&lt;/code&gt;&lt;/strong&gt; = five to nine characters&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;{5,}&lt;/code&gt;&lt;/strong&gt; = more than five characters&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;{,5}&lt;/code&gt;&lt;/strong&gt; = less or five characters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And that’s it for now because Regex can be much difficult to learn in one day, SO more of it tomorrow.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 42 - Nertwork Scanning With Nmap]]></title><description><![CDATA[Nmap short for Network Mapper is a command-line utility used to scan large networks as well as small hosts. These scans are done using IP…]]></description><link>https://zainsci.github.io/blog/day-42/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-42/</guid><pubDate>Thu, 11 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Nmap short for Network Mapper is a command-line utility used to scan large networks as well as small hosts. These scans are done using IP packets that are sent to the host network or device and the response packets then are analyzed by the nmap. Nmap is a must if anyone wants to be better at networking.&lt;/p&gt;
 &lt;h2&gt;What is Nmap?&lt;/h2&gt;
 &lt;p&gt;Nmap is a command-line network scanner. It sends IP packets to the host devices and after receiving the response pacekts it analyzes then to detect what ports are open, detects vulnerabilities, can tell what OS is installed on the system and applications as well. It was written to map entire netowrk and find open ports and services and over time have beocame a must and very useful tool for hackers and system admins in the tech world. Nmap was also featured in The Matrix Movie.&lt;/p&gt;
 &lt;h2&gt;Features of Nmap&lt;/h2&gt;
