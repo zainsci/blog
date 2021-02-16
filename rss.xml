@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Feb 2021 16:47:23 GMT</lastBuildDate><item><title><![CDATA[Day 46 - Scheduling Tasks In Linux]]></title><description><![CDATA[This is the 15th post in the Linux Series and this will about Scheduling Processes in a Linux System. Anyone learning Linux must know how to…]]></description><link>https://zainsci.github.io/blog/day-46/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-46/</guid><pubDate>Mon, 15 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is the 15th post in the Linux Series and this will about Scheduling Processes in a Linux System. Anyone learning Linux must know how to schedule processes in the Linux as it can be very useful once you start getting better at it and want to schedule processes like backing-up certain files and running a certain process at a certain time etc. There are two ways that I know to schedule processes in Linux, one is &lt;code class=&quot;language-text&quot;&gt;at&lt;/code&gt; and the other is &lt;code class=&quot;language-text&quot;&gt;cron&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 16 Feb 2021 16:23:53 GMT</lastBuildDate><item><title><![CDATA[Day 46 - Environment Variables In Linux]]></title><description><![CDATA[This post is all about Environemt Varibles in Linux as they are really important to learn and understand for a Linux User. Environment…]]></description><link>https://zainsci.github.io/blog/day-47/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-47/</guid><pubDate>Tue, 16 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This post is all about Environemt Varibles in Linux as they are really important to learn and understand for a Linux User.&lt;/p&gt;
+&lt;h2&gt;Environment Variables&lt;/h2&gt;
+&lt;p&gt;Environment Variables are variables that are available to all programs in an evnironemnt. These variables define how the porcess should run depending on their value.&lt;/p&gt;
+&lt;p&gt;Environment Variables are strings of key value pairs and are stored like this KEY=value or KEY=val1:val2. If there are more values to one KEY they are separated by a colon.&lt;/p&gt;
+&lt;p&gt;These varibales are used to hide some values that you dont want anyone to have access to. For Example: It could be an API Key or an access token etc.&lt;/p&gt;
+&lt;h3&gt;Viewing Environment Varibales in Linux&lt;/h3&gt;
+&lt;p&gt;To view all the environment variables in Linux just type &lt;code class=&quot;language-text&quot;&gt;env&lt;/code&gt; in the command line.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token function&quot;&gt;env&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;/user/local/bin
+&lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PS1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;u@&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;h:&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;w$
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This command will display all the variables that are available to the environment. Here are shown only two vars, one is PATH and the other is PS1. These two are the only ones that I will talk about here.&lt;/p&gt;
+&lt;h3&gt;PATH&lt;/h3&gt;
+&lt;p&gt;PATH is an environment variables that points to the path for all the commands that you type in the shell such as ls or cd etc.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token environment constant&quot;&gt;$PATH&lt;/span&gt;
+/usr/local/sbin:/usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;These are directories that the bash will look in when you type a command and if the binary for the command is not found in PATH variables it will return command not found.&lt;/p&gt;
+&lt;h3&gt;Change PATH Variable&lt;/h3&gt;
+&lt;p&gt;If you install a new software or compile the binaries youself you won’t be able to use that in the terminal becasue the terminal looks for the binaries to run in the directories that are defined in the PATH variable.&lt;/p&gt;
+&lt;p&gt;To edit a variable you do it like this &lt;code class=&quot;language-text&quot;&gt;KEY=value&lt;/code&gt; in the shell but to add the directory to PATH variable you have to do this the following way.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token environment constant&quot;&gt;$PATH&lt;/span&gt;
+/usr/local/bin:/usr/local/sbin
+root@User:~$ &lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token environment constant&quot;&gt;$PATH&lt;/span&gt;:/root/new-dir
+root@User:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token environment constant&quot;&gt;$PATH&lt;/span&gt;
+/usr/local/bin:/usr/local/sbin:/root/new-dir&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The reason behid doing it this way is because if you edit the PATH by &lt;code class=&quot;language-text&quot;&gt;KEY=value&lt;/code&gt; method it will overwrite the PATH variable with only the value you provide and you might not be able to run commands like &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;cd&lt;/code&gt; etc.&lt;/p&gt;
+&lt;h3&gt;PS1 Environment Variable&lt;/h3&gt;
+&lt;p&gt;PS1 environment variable is a variable that defines how your prompt should look like. For example in the upper example it looks like this &lt;code class=&quot;language-text&quot;&gt;root@User:~$&lt;/code&gt; and that is becaue it is stored as a var like this &lt;code class=&quot;language-text&quot;&gt;\h@\u:\w$&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token environment constant&quot;&gt;$PS1&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;\h@\u:\w$&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And it can be changed the same way we did with PATH but a little different.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@User:~$ &lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PS1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Linux&gt;&quot;&lt;/span&gt;
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token environment constant&quot;&gt;$PS1&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;Linux&gt;&quot;&lt;/span&gt;
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PS1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;\u:\w &gt;&gt;&quot;&lt;/span&gt;
+User:~ &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; tmp
+User:/tmp &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The PS1 variable have some placeholders that can be used to add system information into the prompt. Some of them are following.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Placeholder&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;\u&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;For displaying User&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;\w&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;For displaying Current Directory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;\h&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;For displaying Host&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;\t&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;For displaying Time&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;User:/tmp &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PS1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Linux:\w &gt;&gt;&quot;&lt;/span&gt;
+Linux:/tmp &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; temp
+Linux:/tmp/temp &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~
+Linux:~ &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;pwd&lt;/span&gt;
+/home/User&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Creating Your Own Environment Variables&lt;/h3&gt;
+&lt;p&gt;To create your own variables you can do so by the same way you edit a variable. When editing a variable in the terminal if it already exists it will be overwritten but if it does not a new one will be created.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux:~ &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$NEWVAR&lt;/span&gt;
+
+Linux:~ &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;NEWVAR&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;This is a new Variable!&quot;&lt;/span&gt;
+Linux:~ &lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$NEWVAR&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;This is a new Variable!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Day 46 - Scheduling Tasks In Linux]]></title><description><![CDATA[This is the 15th post in the Linux Series and this will about Scheduling Processes in a Linux System. Anyone learning Linux must know how to…]]></description><link>https://zainsci.github.io/blog/day-46/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-46/</guid><pubDate>Mon, 15 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is the 15th post in the Linux Series and this will about Scheduling Processes in a Linux System. Anyone learning Linux must know how to schedule processes in the Linux as it can be very useful once you start getting better at it and want to schedule processes like backing-up certain files and running a certain process at a certain time etc. There are two ways that I know to schedule processes in Linux, one is &lt;code class=&quot;language-text&quot;&gt;at&lt;/code&gt; and the other is &lt;code class=&quot;language-text&quot;&gt;cron&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Scheduling Process To Run Only Once&lt;/h2&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;at&lt;/code&gt; command is used to run some process at a certain time in the future for only once. &lt;code class=&quot;language-text&quot;&gt;at&lt;/code&gt; command is a daemon which a background process used to schedule a process.&lt;/p&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;at&lt;/code&gt; command accepts an argument as a time stamp and then asks for a file or processs to run at that time.&lt;/p&gt;
