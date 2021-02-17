@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 16 Feb 2021 16:28:13 GMT</lastBuildDate><item><title><![CDATA[Day 47 - Environment Variables In Linux]]></title><description><![CDATA[This post is all about Environemt Varibles in Linux as they are really important to learn and understand for a Linux User. Environment…]]></description><link>https://zainsci.github.io/blog/day-47/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-47/</guid><pubDate>Tue, 16 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This post is all about Environemt Varibles in Linux as they are really important to learn and understand for a Linux User.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 17 Feb 2021 16:24:09 GMT</lastBuildDate><item><title><![CDATA[Day 48 - BASH Scripting In Linux]]></title><description><![CDATA[A Shell is a command interpreter or an interface between a computer’s OS and the user that enables the user to manipulate files and run…]]></description><link>https://zainsci.github.io/blog/day-48/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-48/</guid><pubDate>Wed, 17 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A Shell is a command interpreter or an interface between a computer’s OS and the user that enables the user to manipulate files and run commands, programs etc.&lt;/p&gt;
+&lt;p&gt;There are many shells available for Linux like Zsh or Z-Shell and C Shell but here we are only going to talk about BASH or Bourne-Again Shell because BASH is very widely used and comes pre-installed in most of the Linux Distros and also in MAC-OS and other UNIX like OS.&lt;/p&gt;
+&lt;h2&gt;BASH Scripting&lt;/h2&gt;
+&lt;p&gt;Scripting allows us to run multiple commands automatically at a time that if done by a human would have to type one after another. BASH Scripting a script written to be executed by the BASH.&lt;/p&gt;
+&lt;p&gt;To write a script we need a Text-Editor and for that I will be using VI because it comes pre-installed with Linux.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; newscript
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;vi&lt;/span&gt; newscript
+&lt;span class=&quot;token comment&quot;&gt;#! /bin/bash&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;This is a simple bash script&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This script written above has two lines in it, the first one start with &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;!&lt;/code&gt; which is called a &lt;strong&gt;shebang&lt;/strong&gt; and after that we define what shell should run this script which is &lt;code class=&quot;language-text&quot;&gt;/bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The second one is an actual command that we use in the shell. We learned about some commands in &lt;a href=&quot;/blog/day-34/&quot;&gt;Day-34&lt;/a&gt; and &lt;a href=&quot;/blog/day-41/&quot;&gt;Day-41&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Any newly created script file is not executeable by default so you have to add execute permission to the file that we talked about in &lt;a href=&quot;/blog/day-39/&quot;&gt;Day-39&lt;/a&gt;. After adding permission to we can run it in the shell.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./newscript
+This is a simple &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; script&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Variables and Input In BASH Script&lt;/h3&gt;
+&lt;p&gt;You can use vaiables and ask for input from the user to add more functionality in your BASH scripts.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; secscript.sh
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;vi&lt;/span&gt; secscript.sh
+&lt;span class=&quot;token comment&quot;&gt;#! /bin/bash&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;What&apos;s your name?&quot;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;read&lt;/span&gt; name
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello There, &quot;&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here a new keyword is used which is &lt;code class=&quot;language-text&quot;&gt;read&lt;/code&gt; which is used to read the the text that you input in the shell before you hit enter and the &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; after the &lt;code class=&quot;language-text&quot;&gt;read&lt;/code&gt; is a varibale that stores the string that you type in the shell. Now after adding permissions to it I will run the script.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./secscript.sh
+What&apos;s your name?
+Linus
+Hello There, Linus&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Example Script&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# /bin/bash&lt;/span&gt;
+nmap -sT &lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;.10.0/24 &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; script-results
+&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; script-results &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; open-ports
+&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; open-ports&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This script will search for all open ports on the netwrok using nmap and save the output result in the &lt;code class=&quot;language-text&quot;&gt;script-result&lt;/code&gt; file and then &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt; is used to filter out lines and save these lines in &lt;code class=&quot;language-text&quot;&gt;open-ports&lt;/code&gt; file which then cat commands prints out. This is a very simple script but more complex ones can be written using common keywords that are available to us for use in the scripts.&lt;/p&gt;
+&lt;h3&gt;Common Built-in BASH Commands&lt;/h3&gt;
+&lt;p&gt;Thses are the most common built-in BASH commands that can be used just like a programming language to write more complex scripts.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Command&lt;/th&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cd&lt;/td&gt;
+&lt;td&gt;Changes Directory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;echo&lt;/td&gt;
+&lt;td&gt;Displays the arugment in shell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;exit&lt;/td&gt;
+&lt;td&gt;Exits the shell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bg&lt;/td&gt;
+&lt;td&gt;Puts a job in the background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fg&lt;/td&gt;
+&lt;td&gt;Puts a job in the foreground&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;jobs&lt;/td&gt;
+&lt;td&gt;Displays list of background jobs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;read&lt;/td&gt;
+&lt;td&gt;Reads a user input&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;export&lt;/td&gt;
+&lt;td&gt;Make a variable available to other programs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;readonly&lt;/td&gt;
+&lt;td&gt;Declares a varibale as readonly&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;set&lt;/td&gt;
+&lt;td&gt;Displays list of all vaiables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;unset&lt;/td&gt;
+&lt;td&gt;Deletes values from a variable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;wait&lt;/td&gt;
+&lt;td&gt;Waits for a background process to complete&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;test&lt;/td&gt;
+&lt;td&gt;Evaluates arguments&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;exec&lt;/td&gt;
+&lt;td&gt;Executes a command without creating a new process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These are some common commands that I rememmber but there are alot of them that can help in creating more useful scripts. Scripting is essential for automating tasks and being more productive in using the Linux and the Shell.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 47 - Environment Variables In Linux]]></title><description><![CDATA[This post is all about Environemt Varibles in Linux as they are really important to learn and understand for a Linux User. Environment…]]></description><link>https://zainsci.github.io/blog/day-47/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-47/</guid><pubDate>Tue, 16 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This post is all about Environemt Varibles in Linux as they are really important to learn and understand for a Linux User.&lt;/p&gt;
 &lt;h2&gt;Environment Variables&lt;/h2&gt;
 &lt;p&gt;Environment Variables are variables that are available to all programs in an evnironemnt. These variables define how the porcess should run depending on their value.&lt;/p&gt;
 &lt;p&gt;Environment Variables are strings of key value pairs and are stored like this KEY=value or KEY=val1:val2. If there are more values to one KEY they are separated by a colon.&lt;/p&gt;
