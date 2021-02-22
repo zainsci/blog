@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Feb 2021 16:57:37 GMT</lastBuildDate><item><title><![CDATA[Day 51 - Data Structures And Algorithms]]></title><description><![CDATA[I started learning programming in the late 2019 when I enrolled in the Computer Science Class at College and now I am pretty comfortable…]]></description><link>https://zainsci.github.io/blog/day-51/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-51/</guid><content:encoded>&lt;p&gt;I started learning programming in the late 2019 when I enrolled in the Computer Science Class at College and now I am pretty comfortable with Python, HTML, CSS and JavaScript. I also know C and all the basics you need to work with C like Memory Allocation etc and sometime ago I started learning and implementing common Data Structures and Algorithms in C but left soon after starting because of another project.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Feb 2021 16:23:59 GMT</lastBuildDate><item><title><![CDATA[Day 51 - Data Structures And Algorithms]]></title><description><![CDATA[I started learning programming in the late 2019 when I enrolled in the Computer Science Class at College and now I am pretty comfortable…]]></description><link>https://zainsci.github.io/blog/day-51/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-51/</guid><content:encoded>&lt;p&gt;I started learning programming in the late 2019 when I enrolled in the Computer Science Class at College and now I am pretty comfortable with Python, HTML, CSS and JavaScript. I also know C and all the basics you need to work with C like Memory Allocation etc and sometime ago I started learning and implementing common Data Structures and Algorithms in C but left soon after starting because of another project.&lt;/p&gt;
 &lt;p&gt;Now is the time that I restart my Data Structures and Algorithms journey and learn as many as I can. And I will be documenting them here and will write a little intro about them. But first of all what are Data Structures and Algorithms.&lt;/p&gt;
 &lt;h2&gt;Data Structures&lt;/h2&gt;
 &lt;p&gt;A Data Structure is a format for storage, management and organization of data for efficient access and modification. Examples are Hash Tables, Linked Lists and Arrays etc.&lt;/p&gt;
@@ -14,7 +14,86 @@
 &lt;span class=&quot;token comment&quot;&gt;/*
  * {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
  */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;First of all I will be learning as many Algorithms as I can in these three weeks starting from today and after that I will learn Data Structures for three weeks. Tomorrow I will first discuss about the Big O Notataion and the Efficiency of the Algorithms and the next day after that I will start learning algorithms one by one.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 52 - The Big O Notation]]></title><description><![CDATA[Algorithms are steps to solve a problem and there are many algorithms to solve just one problem but all of them follow different steps. All…]]></description><link>https://zainsci.github.io/blog/day-52/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-52/</guid><pubDate>Sun, 21 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Algorithms are steps to solve a problem and there are many algorithms to solve just one problem but all of them follow different steps. All these algorithms have pros and cons and all these algorithms take different time to solve the same problem.&lt;/p&gt;
+&lt;p&gt;First of all I will be learning as many Algorithms as I can in these three weeks starting from today and after that I will learn Data Structures for three weeks. Tomorrow I will first discuss about the Big O Notataion and the Efficiency of the Algorithms and the next day after that I will start learning algorithms one by one.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 53 - Insertion Sort]]></title><description><![CDATA[Insertion Sort is a simple sorting algorithm that sorts a list of elements one element at a time. In simple words, Insertion sort takes a…]]></description><link>https://zainsci.github.io/blog/day-53/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-53/</guid><pubDate>Mon, 22 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Insertion Sort is a simple sorting algorithm that sorts a list of elements one element at a time. In simple words, Insertion sort takes a list as an input, sorts the list by changing the position of one element at a time. Insertion sort is a very simple algorithm for sorting lists but it also have its advantages.&lt;/p&gt;
+&lt;p&gt;Insertion Sort is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy to implement than other sorting algorithms&lt;/li&gt;
+&lt;li&gt;Very efficient in sorting small size lists&lt;/li&gt;
+&lt;li&gt;Require a constant amount of memory for the process&lt;/li&gt;
+&lt;li&gt;Sorts a list as it receives it&lt;/li&gt;
+&lt;li&gt;More efficient in practice than most of the sorting algorithms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Insertion sort works the same way as most people sort playing cards. Comparing the card with the other card and swapping one card at a time.&lt;/p&gt;
+&lt;h2&gt;How it works?&lt;/h2&gt;
+&lt;p&gt;Insertion sort takes a list of elements as an input. The algorithm will always assumes the first element as sorted and iterates over all other elements of the list one by one and checks each element with it previuos element. If the previous element is bigger than the current element it will swap them both and then again checks the previous element until the element is at the right position. It iterates over all the elements until the list is sorted.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/1da99/insertion-sort.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30.37974683544304%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3QUH/8QAFxAAAwEAAAAAAAAAAAAAAAAAAAERQf/aAAgBAQABBQLVRH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAYEAADAQEAAAAAAAAAAAAAAAAAARFRcf/aAAgBAQABPyFJ1nREudEih//aAAwDAQACAAMAAAAQA8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEBAQADAQAAAAAAAAAAAAABEQAxQVGR/9oACAEBAAE/EC8FVq1+aIZ4VrbodLO1rv/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Insertion Sort&quot;
+        title=&quot;Insertion Sort&quot;
+        src=&quot;/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/828fb/insertion-sort.jpg&quot;
+        srcset=&quot;/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/ff44c/insertion-sort.jpg 158w,
+/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/a6688/insertion-sort.jpg 315w,
+/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/828fb/insertion-sort.jpg 630w,
+/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/0ede0/insertion-sort.jpg 945w,
+/blog/static/1ebd9ad086700ae89c1e2231b54be2ab/1da99/insertion-sort.jpg 1233w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Figure from Introduction to Algorithms by MIT Press&lt;/small&gt;&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;Here’s a simple implementation of insertion sort in Python.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;py&quot;&gt;&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;nums &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nums&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i
+
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot; Iterates j times to check if the element
+    is at the right position &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; nums&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; nums&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        nums&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nums&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nums&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nums&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# element swapping&lt;/span&gt;
+        j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+    i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nums&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Complesity&lt;/h2&gt;
+&lt;p&gt;The Complexity of Insertion Sort in Best, Worst and Average Case is as follows.&lt;/p&gt;
+&lt;h3&gt;In Best Case&lt;/h3&gt;
+&lt;p&gt;Considering that the provided list is already sorted, Insertion sort will have complexity of O(n) or Linear Complexity. It will only check for one element on each iteration and will takes n steps to sort the list if the lenght of list is n.&lt;/p&gt;
+&lt;h3&gt;In Worst Case&lt;/h3&gt;
+&lt;p&gt;Considering that the provided list is already sorted in the reverse order, Insertion sort will have the complexity of O(n^2) or Quadratic Complexity. It will iterate over all the elements one by one and swap evey element that comes before the current element until the list is completely sorted.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;md&quot;&gt;&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;list = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+0- [9, 8, 7, 6, 5, 4, 3, 2, 1]
+1- [8, 9, 7, 6, 5, 4, 3, 2, 1]
+2- [8, 7, 9, 6, 5, 4, 3, 2, 1]
+3- [7, 8, 9, 6, 5, 4, 3, 2, 1]
+4- [7, 8, 6, 9, 5, 4, 3, 2, 1]
+...
+...
+37- [1, 2, 3, 4, 5, 6, 7, 8, 9]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The bigger the list more time and steps it will take to sort an unordered list with insertion sort.&lt;/p&gt;
+&lt;h3&gt;In Average Case&lt;/h3&gt;
+&lt;p&gt;The same goes for Average Case with insertion as was with Worst Case having the time complexity of O(n^2).&lt;/p&gt;
+&lt;p&gt;Insertion sort was easy and simple one but I don’t think next ones will be as simple, So let’s see what will happen.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 52 - The Big O Notation]]></title><description><![CDATA[Algorithms are steps to solve a problem and there are many algorithms to solve just one problem but all of them follow different steps. All…]]></description><link>https://zainsci.github.io/blog/day-52/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-52/</guid><pubDate>Sun, 21 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Algorithms are steps to solve a problem and there are many algorithms to solve just one problem but all of them follow different steps. All these algorithms have pros and cons and all these algorithms take different time to solve the same problem.&lt;/p&gt;
 &lt;p&gt;When solving a problem we always look for the most efficient way to solve that problem and for that we need to find the time complexity and the steps it will take an algorithm to solve the problem more efficiently. For this analysis of algorithms we use a notation called The Big O Notation.&lt;/p&gt;
 &lt;h2&gt;The Big O Notation&lt;/h2&gt;
 &lt;p&gt;The Big O Notation is used to find the complexity of an algorithm. It is a way to know how well an algorithm will perform when provided with a certain input. It helps programmers know about the time and space complexity of an algorithm.&lt;/p&gt;
