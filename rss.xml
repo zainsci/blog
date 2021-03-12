@@ -1,9 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Linux, Networking and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Mar 2021 19:00:12 GMT</lastBuildDate><item><title><![CDATA[Day 70 - Process Management]]></title><description><![CDATA[Process Management In the early days of the computers one computer which was as big as a truck could run only one program at a time. That…]]></description><link>https://zainsci.github.io/blog/day-70/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-70/</guid><pubDate>Thu, 11 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Process Management&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 12 Mar 2021 17:12:39 GMT</lastBuildDate><item><title><![CDATA[Day 71 - Process Control Block]]></title><description><![CDATA[Last time I wrote about the Process and it memory layout and now I will be writing about how a process is represented in operating systems…]]></description><link>https://zainsci.github.io/blog/day-71/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-71/</guid><pubDate>Fri, 12 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last time I wrote about the Process and it memory layout and now I will be writing about how a process is represented in operating systems and what are threads.&lt;/p&gt;
+&lt;h3&gt;Process Control Block&lt;/h3&gt;
+&lt;p&gt;A Process Control Block or a Task Control Block is how the operating system represents a process. A PCB contains following pieces of information in it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Process State.&lt;/strong&gt; As mentioned in the last post a process can be in a new, running, terminating, waiting or in ready state.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Program Counter.&lt;/strong&gt; The counter holds the address for the next intruction to be executed for the process.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPU Registers.&lt;/strong&gt; The CPU register vary depending on the type for CPU architecture and store the state information when an interrupt occurs so the porcess can be continued correctly after the interrupt is handled.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CPU-scheduling Information.&lt;/strong&gt; This contains the pointers to process and scheduling information about the processes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory Management Information.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accounting Information.&lt;/strong&gt; This stores the information about the CPU usage and account number, jobs or process numbers etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I/O Status Information.&lt;/strong&gt; This stores the information about the currently open files and the I/O devices in use at the time.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Day 70 - Process Management in Operating Systems]]></title><description><![CDATA[This is the start of another mini series on Process Management in Operating Systems. Process Managemenet is a wide topic that cannot be…]]></description><link>https://zainsci.github.io/blog/day-70/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-70/</guid><pubDate>Thu, 11 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is the start of another mini series on Process Management in Operating Systems. Process Managemenet is a wide topic that cannot be covered I think in two to three posts. I will be discussing about Processes, Threads, Scheduling, and Concurrency etc.&lt;/p&gt;
 &lt;p&gt;In the early days of the computers one computer which was as big as a truck could run only one program at a time. That means that one program had access to all the resources a computer but modern computers allow us to run multiple programs at once and can fit in the palms of our hands.&lt;/p&gt;
 &lt;p&gt;Modern computers are becoming more and more powerful everyday and are able to handle hundreds of processes at a time. But what is a process and that is what I will be learning about from now.&lt;/p&gt;
-&lt;h2&gt;Processes&lt;/h2&gt;
-&lt;p&gt;As mentioned above that the early computers only executed one program at a time, We call these types of computers Batch Computers. But now a days even a single-user system can execute more than one programs at a time like a browser and a word processing softwore etc. All these programs are handeled by the OS that run activites to execute them. these activites are called porcesses. Process is also called a Job because in the past when OS was a new concept job was the term used for what we now call a process so many of the terms in the OS are named after the term job rather than the process.&lt;/p&gt;
-&lt;p&gt;A Process is a program in execution. The status of current activity of a process is represented by the value of the program counter and the contents of the processor’s registers.&lt;/p&gt;
+&lt;h2&gt;The Process&lt;/h2&gt;
+&lt;p&gt;As mentioned above that the early computers only executed one program at a time, We call these types of computers Batch Computers. But now a days even a single-user system can execute more than one programs at a time like a browser and a word processing softwore etc. All these programs are handeled by the OS that run activites to execute them. These activites are called processes. Process is also called a Job because in the past when OS was a new concept job was the term used for what we now call a process so many of the terms in the OS are named after the term job rather than the process.&lt;/p&gt;
+&lt;p&gt;A Process is a program in execution. it needs resources during the execution to accomplish it task. A process is like a unit of work in most of the systems. The status of current activity of a process is represented by the value of the program counter and the contents of the processor’s registers.&lt;/p&gt;
 &lt;p&gt;The memory layout of a process is divided into multiple parts, Text, Data, Heap and Stack.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Text Section&lt;/strong&gt; - The executeable code&lt;/li&gt;
@@ -11,7 +22,52 @@
 &lt;li&gt;&lt;strong&gt;Heap Section&lt;/strong&gt; - The memory that is dynamically allocated during the program runtime&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Stack Section&lt;/strong&gt; - Temporary data storage when invoking functions&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I am ending this here because I don’t have time to complete this now but I will fill it tomorrow.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 69 - Operating System Interrupts]]></title><description><![CDATA[So far I have wrote about what Operating Systems are but now I will start writing about how it works and what makes it work but before going…]]></description><link>https://zainsci.github.io/blog/day-69/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-69/</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;So far I have wrote about what Operating Systems are but now I will start writing about how it works and what makes it work but before going into details I will write about Interrurpts. So what are interrupts?&lt;/p&gt;
+&lt;p&gt;The size of Text and Data in memory are fixed and will not change during the execution while the Heap and Stack will shrik and grow according to their use in the program. Heap will grow when ever the memory is allocated dynamically during the execution and will shrink whenever the memory is deallocated during the execution. Stack will grow when a function is called and will shrink whenever the dunction will return something.&lt;/p&gt;
+&lt;p&gt;A process is not a program itself but a program becomes a process when it is called into the memory either by double clicking the program icon or typing the name of the program in a command-line interface. Even if two processes are associated with the same program they will be considered two different execution environments.&lt;/p&gt;
+&lt;h3&gt;The State Of The Process&lt;/h3&gt;
+&lt;p&gt;A process has a state which changes as it executes. A process state is defined by the current activity of that process. It could be in waiting state of terminating state etc. A process can be in one of the following states.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;New&lt;/strong&gt; - The process is being created.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ready&lt;/strong&gt; - The process is ready to be assigned to the processor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Waiting&lt;/strong&gt; - The process is waiting for some event to occur like a key press.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Running&lt;/strong&gt; - The process instructions are being executed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Terminated&lt;/strong&gt; - The process has finished execution.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&quot;display: flex; flex-direction: column; align-items: center;&quot;&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/61482aba10f683ba72a10214e68d111a/4658e/process-state.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.46835443037975%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHuyxNhf//EABgQAAIDAAAAAAAAAAAAAAAAAAABEDFB/9oACAEBAAEFAnLrT//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAQADAQEAAAAAAAAAAAAAAAEAEBFBMf/aAAgBAQABPyEPN2Cr3IGFR4r/2gAMAwEAAgADAAAAECTP/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qh//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQACAQUAAAAAAAAAAAAAAAEAESEQMVFxsf/aAAgBAQABPxAFuZy4mJFO9iNwqhXtuexrP//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;The State of the Process&quot;
+        title=&quot;The State of the Process&quot;
+        src=&quot;/blog/static/61482aba10f683ba72a10214e68d111a/828fb/process-state.jpg&quot;
+        srcset=&quot;/blog/static/61482aba10f683ba72a10214e68d111a/ff44c/process-state.jpg 158w,
+/blog/static/61482aba10f683ba72a10214e68d111a/a6688/process-state.jpg 315w,
+/blog/static/61482aba10f683ba72a10214e68d111a/828fb/process-state.jpg 630w,
+/blog/static/61482aba10f683ba72a10214e68d111a/4658e/process-state.jpg 722w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div style=&quot;font-size: 10px; text-align: center;&quot;&gt;
+&lt;p&gt;Figure from Book &lt;a href=&quot;https://www.goodreads.com/book/show/83833.Operating_System_Concepts&quot;&gt;Operating System Concepts&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Day 69 - Operating System Interrupts]]></title><description><![CDATA[So far I have wrote about what Operating Systems are but now I will start writing about how it works and what makes it work but before going…]]></description><link>https://zainsci.github.io/blog/day-69/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-69/</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;So far I have wrote about what Operating Systems are but now I will start writing about how it works and what makes it work but before going into details I will write about Interrurpts. So what are interrupts?&lt;/p&gt;
 &lt;h2&gt;What Are Interrupts?&lt;/h2&gt;
 &lt;p&gt;An interrupt is a hardware-generated change-of-flow within the system. Interrupt is way for electronic devices to tell the CPU that they need attention because their state just changed. When an interrupt happens the processor will call the function to interrupt handler and stops the current running process, saves it state and executes the interrupt function and after handeling the interrupt it will get back to the process that it stopped before the interrupt.&lt;/p&gt;
 &lt;p&gt;Common functions of Interrupt are following.&lt;/p&gt;
