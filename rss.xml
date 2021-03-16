@@ -1,4 +1,164 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 14 Mar 2021 17:02:00 GMT</lastBuildDate><item><title><![CDATA[Day 73 - Inter-Porcess Communication]]></title><description><![CDATA[Inter-Process Communication allows one process to communicate with another process. In a multiprogramming systems there are hundreds of…]]></description><link>https://zainsci.github.io/blog/day-73/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-73/</guid><pubDate>Sun, 14 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Inter-Process Communication allows one process to communicate with another process. In a multiprogramming systems there are hundreds of processes running at the same time and a lot of them require some other process to give input to them or receive input for them to complete the execution of a process.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 16 Mar 2021 16:26:31 GMT</lastBuildDate><item><title><![CDATA[Day 75 - Multithreading Models]]></title><description><![CDATA[As mentioned in the last post about threads, Multithreading is the ability of the CPU to run multiple threads of execution at the same time…]]></description><link>https://zainsci.github.io/blog/day-75/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-75/</guid><pubDate>Tue, 16 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;As mentioned in the last post about threads, Multithreading is the ability of the CPU to run multiple threads of execution at the same time while sharing resources of a single or multiple cores. Threads are of mainly two levels, user threads and kernel threads.&lt;/p&gt;
+&lt;p&gt;User threads are supported above the kernel and are managed without the help from the kernel and kernel threads are directly supported by the Operating System. A relationship must exist between user threads and kernel threads. There are maily three types of realtions used in user-kernel threading model. These are following.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many-to-One Model&lt;/li&gt;
+&lt;li&gt;One-to-One Model&lt;/li&gt;
+&lt;li&gt;Many-to-Many Model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Many-to-One Model&lt;/h3&gt;
+&lt;p&gt;Many-to-One model maps many user-level threads to a single kernel-level threads. It is done in the user space by the thread library. In Many-to-One model if a thread makes a system blocking call it will block entire process. Only one thread can access the kernel at a time which makes it unable for multi threads to run in parallel on multiprocessors.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/c312f4fdce8c584f5ce74caa922c0840/07635/many-to-one.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7Gklg//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAECEDFB/9oACAEBAAEFApCp50//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAaEAACAgMAAAAAAAAAAAAAAAAAEAERMUFh/9oACAEBAAE/IbaLdWchP//aAAwDAQACAAMAAAAQU8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgEFAAAAAAAAAAAAAAABEBEAIXGRobH/2gAIAQEAAT8QQCybY7mq5fY6k3//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Many To One Multi-threading Model&quot;
+        title=&quot;Many To One Multi-threading Model&quot;
+        src=&quot;/blog/static/c312f4fdce8c584f5ce74caa922c0840/828fb/many-to-one.jpg&quot;
+        srcset=&quot;/blog/static/c312f4fdce8c584f5ce74caa922c0840/ff44c/many-to-one.jpg 158w,
+/blog/static/c312f4fdce8c584f5ce74caa922c0840/a6688/many-to-one.jpg 315w,
+/blog/static/c312f4fdce8c584f5ce74caa922c0840/828fb/many-to-one.jpg 630w,
+/blog/static/c312f4fdce8c584f5ce74caa922c0840/0ede0/many-to-one.jpg 945w,
+/blog/static/c312f4fdce8c584f5ce74caa922c0840/07635/many-to-one.jpg 952w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;One-to-One Model&lt;/h3&gt;
+&lt;p&gt;One-to-One model maps each user thread to a single kernel thread. This way other threads can keep runnig while one thread is asking for a blocking system call. It also allows multiple threads to run in parallel on multiprocessors.&lt;/p&gt;
+&lt;p&gt;The drawback to this model is that running one user thread requires one kernel thread to run with it which can cause a burden on the system.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/9c45c9c979992c538654d4f6ef72172e/0ede0/one-to-one.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHdSyBgD//EABgQAAIDAAAAAAAAAAAAAAAAAAEQAAIx/9oACAEBAAEFArQI4v/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAAIDAQAAAAAAAAAAAAAAAAAQARExQf/aAAgBAQABPyEWvq0I1f/aAAwDAQACAAMAAAAQI8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAABAwUAAAAAAAAAAAAAAAARABAhATFRYfD/2gAIAQEAAT8QIUB2ogh2Xltv/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;One To One Multi-threading Model&quot;
+        title=&quot;One To One Multi-threading Model&quot;
+        src=&quot;/blog/static/9c45c9c979992c538654d4f6ef72172e/828fb/one-to-one.jpg&quot;
+        srcset=&quot;/blog/static/9c45c9c979992c538654d4f6ef72172e/ff44c/one-to-one.jpg 158w,
+/blog/static/9c45c9c979992c538654d4f6ef72172e/a6688/one-to-one.jpg 315w,
+/blog/static/9c45c9c979992c538654d4f6ef72172e/828fb/one-to-one.jpg 630w,
+/blog/static/9c45c9c979992c538654d4f6ef72172e/0ede0/one-to-one.jpg 945w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Many-to-Many Model&lt;/h3&gt;
+&lt;p&gt;Many-to-Many model maps many user-level threads to less or equal number of kernle threads.The number of threads may be specific to an application or to a particular machine.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/8a9932ec2512fafe870c49acd475a10d/30cf6/many-to-many.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHdSyBgD//EABgQAAIDAAAAAAAAAAAAAAAAAAEQAAIx/9oACAEBAAEFArQI4v/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAAEFAAAAAAAAAAAAAAAAABAAARExYf/aAAgBAQABPyFJ6RrH/9oADAMBAAIAAwAAABAjz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAAEEAwAAAAAAAAAAAAAAABEAARAxIbHB/9oACAEBAAE/ECDBZG0PYuVUf//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Many To Many Multi-threading Model&quot;
+        title=&quot;Many To Many Multi-threading Model&quot;
+        src=&quot;/blog/static/8a9932ec2512fafe870c49acd475a10d/828fb/many-to-many.jpg&quot;
+        srcset=&quot;/blog/static/8a9932ec2512fafe870c49acd475a10d/ff44c/many-to-many.jpg 158w,
+/blog/static/8a9932ec2512fafe870c49acd475a10d/a6688/many-to-many.jpg 315w,
+/blog/static/8a9932ec2512fafe870c49acd475a10d/828fb/many-to-many.jpg 630w,
+/blog/static/8a9932ec2512fafe870c49acd475a10d/0ede0/many-to-many.jpg 945w,
+/blog/static/8a9932ec2512fafe870c49acd475a10d/30cf6/many-to-many.jpg 956w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 74 - Threads]]></title><description><![CDATA[A thread is a basic unit of CPU utilization. It is also called a lightweight process. It behaves like a process in a process and does not…]]></description><link>https://zainsci.github.io/blog/day-74/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-74/</guid><pubDate>Mon, 15 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A thread is a basic unit of CPU utilization. It is also called a &lt;strong&gt;lightweight process&lt;/strong&gt;. It behaves like a process in a process and does not have its own process control block. Usually multiple threads are created with a single process. If a process has multiple threads it can perform multiple tasks at the same time.&lt;/p&gt;
+&lt;p&gt;A thread consists of the following.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Thread ID&lt;/li&gt;
+&lt;li&gt;Program Counter&lt;/li&gt;
+&lt;li&gt;Register Set&lt;/li&gt;
+&lt;li&gt;Stack&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A thread share the following with its peer threads in a particular task:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Code Section&lt;/li&gt;
+&lt;li&gt;Data Section&lt;/li&gt;
+&lt;li&gt;Operating System source available to the task, such as open files and signals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/b67efb5d60a91f1b341f975d39ee759e/6e99d/threading.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHdSyBgD//EABcQAQADAAAAAAAAAAAAAAAAABEAASD/2gAIAQEAAQUCJa4//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFRABAQAAAAAAAAAAAAAAAAAAIDH/2gAIAQEABj8Cq//EABkQAQADAQEAAAAAAAAAAAAAAAEAEDERIf/aAAgBAQABPyF6dEGT5TDa/9oADAMBAAIAAwAAABBzz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAQACAgMAAAAAAAAAAAAAAAEAECExQVFh/9oACAEBAAE/EHdPEaimpl3R08zILX//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Single vs Multi-Thread Process&quot;
+        title=&quot;Single vs Multi-Thread Process&quot;
+        src=&quot;/blog/static/b67efb5d60a91f1b341f975d39ee759e/828fb/threading.jpg&quot;
+        srcset=&quot;/blog/static/b67efb5d60a91f1b341f975d39ee759e/ff44c/threading.jpg 158w,
+/blog/static/b67efb5d60a91f1b341f975d39ee759e/a6688/threading.jpg 315w,
+/blog/static/b67efb5d60a91f1b341f975d39ee759e/828fb/threading.jpg 630w,
+/blog/static/b67efb5d60a91f1b341f975d39ee759e/0ede0/threading.jpg 945w,
+/blog/static/b67efb5d60a91f1b341f975d39ee759e/3ac88/threading.jpg 1260w,
+/blog/static/b67efb5d60a91f1b341f975d39ee759e/6e99d/threading.jpg 1674w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Modern computers have multiple process all running multiple threads to do more work at the same time. For example a browser might be running a single thread for displaying images and other thread to render html pages or a word processing program can have a thread for spellchecking and other thread for displaying graphics.&lt;/p&gt;
+&lt;p&gt;Another more common example of using multi-threads process is in web-servers. A web-server may be serving many requests at the same time and if it were to be a single-thread process it would only serve one user at a time. Instead a server creates a thread for every reuqest it get from a client and serves the client with the requested data like HTML pages or images etc.&lt;/p&gt;
+&lt;h3&gt;Benefits Of Multi-threading Processes&lt;/h3&gt;
+&lt;p&gt;There are four major benefits of Multi-Threadinf Processes.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Responsiveness.&lt;/strong&gt; A program’s responsiveness to the user can be increased my multithreading the process. This will cause the program to run some of its parts even if one or two are been blocked by something.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource Sharing.&lt;/strong&gt; Processes can share memory through techniques like shared memory and message passing. and these techniques must be explicitly arranged by the programmer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Economy.&lt;/strong&gt; Multithreading is more economical because the threads can share the resources of the same process to which they belong.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scalability.&lt;/strong&gt; The benefits of multithreading can be even greater in a multiprocessor architecture, where threads may be running in parallel on different processing cores.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Day 73 - Inter-Porcess Communication]]></title><description><![CDATA[Inter-Process Communication allows one process to communicate with another process. In a multiprogramming systems there are hundreds of…]]></description><link>https://zainsci.github.io/blog/day-73/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-73/</guid><pubDate>Sun, 14 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Inter-Process Communication allows one process to communicate with another process. In a multiprogramming systems there are hundreds of processes running at the same time and a lot of them require some other process to give input to them or receive input for them to complete the execution of a process.&lt;/p&gt;
 &lt;p&gt;IPC is supported by OS that allows one process to communicate with another process. These processes can be running on the same computer or multiple other computer connected throug a network. It enables one application to control other application and share data between each other.&lt;/p&gt;
 &lt;p&gt;All the processes that are being executed in an OS can be specified into two groups, &lt;strong&gt;Independent Processes&lt;/strong&gt; and &lt;strong&gt;Cooperating Processes&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;Independent Processes&lt;/h2&gt;
