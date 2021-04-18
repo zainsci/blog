@@ -1,4 +1,155 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 16 Apr 2021 10:18:20 GMT</lastBuildDate><item><title><![CDATA[Day 105 - Memory Segmentation]]></title><description><![CDATA[In the last post we learned that Paging is a part of the virtual memory that allows the OS to execede the limit of the physical memory by…]]></description><link>https://zainsci.github.io/blog/day-105/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-105/</guid><pubDate>Thu, 15 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In the last post we learned that Paging is a part of the virtual memory that allows the OS to execede the limit of the physical memory by letting it draw blocks of data called pages from the secondary storage into the main memroy when needed for execution. Now we will be looking at segmentation.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Apr 2021 11:57:56 GMT</lastBuildDate><item><title><![CDATA[Day 107 - Svelte, A JavaScript FrontEnd Framework]]></title><description><![CDATA[Svelte is a JavaScript FrontEnd Framework just like React, Vue and Angular which is used to build frontend user interfaces. Its a “tool for…]]></description><link>https://zainsci.github.io/blog/day-107/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-107/</guid><pubDate>Sat, 17 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Svelte is a JavaScript FrontEnd Framework just like React, Vue and Angular which is used to build frontend user interfaces. Its a “tool for building fast web applications”. It is components based framework.&lt;/p&gt;
+&lt;p&gt;There are many difference between Svelte and other frameworks like React but the main difference can be that Svelte is a compiler and it does not uses Virtual DOM for rendering its compoents in the Browser. It will compile your code into Vanila JavaScript at build time while react compiles the components at the run time.&lt;/p&gt;
+&lt;p&gt;I will be taking a break from learning about Operating Systems and instead will foucs on WebDev for some time now. Svelte is the first thing I will be learning about and I have heard alot about it on Twitter and Youtube and now I will be learning the basics of it.&lt;/p&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;To get start with Svelte we run the following command which is just like &lt;code class=&quot;language-text&quot;&gt;npx create-react-app&lt;/code&gt; command that will setup all the basic files for us.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;User: ~/svelte$ npx degit sveltejs/template svelte-demo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After getting all the boiler plate we run the following commands.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;User: ~/svelte$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;
+User: ~/svelte$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Basics&lt;/h3&gt;
+&lt;p&gt;If anyone of you who knows VueJS can understand the basics of Svelte quite easily. I am not saying that they are same rather I am saying is that it quite simillar to how we build components in VueJS.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Vue Components&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;template&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    //  HTML structure of the component
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;template&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    // JavaScript code for the component
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    // Styling for the components
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Svelte Components&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    // All of JS logic for the component
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    // Styling for the component
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;HTML Structure Here!&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You see how they both are simillar in writing code for the components. In &lt;code class=&quot;language-text&quot;&gt;script&lt;/code&gt; tag at the top in Svelte component we write all the JS for the component, &lt;code class=&quot;language-text&quot;&gt;style&lt;/code&gt; tag for stying the component and below all we write HTML for the component.&lt;/p&gt;
+&lt;p&gt;Now back to Svelte. When we clone the repo or &lt;code class=&quot;language-text&quot;&gt;npx&lt;/code&gt; it, there are three dirs that are present there. For now we only be working with &lt;code class=&quot;language-text&quot;&gt;src&lt;/code&gt; directory. In src dir, there are two files, &lt;code class=&quot;language-text&quot;&gt;main.js&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;App.svelte&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;main.js&lt;/code&gt; file the component is being imported and is assigned to a new var &lt;code class=&quot;language-text&quot;&gt;app&lt;/code&gt; and is provided two arguments to it. first one is the target &lt;code class=&quot;language-text&quot;&gt;document.body&lt;/code&gt; which tells the compiler where it should be rendering. Second &lt;code class=&quot;language-text&quot;&gt;props&lt;/code&gt; which is simillar to &lt;code class=&quot;language-text&quot;&gt;props&lt;/code&gt; in React.&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;App.svelte&lt;/code&gt; we see a simillar structure as we see above. In &lt;code class=&quot;language-text&quot;&gt;script&lt;/code&gt; tag we are exporting a const &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; which we use in the &lt;code class=&quot;language-text&quot;&gt;main &amp;gt; h1&lt;/code&gt; tag and then in &lt;code class=&quot;language-text&quot;&gt;style&lt;/code&gt; the styling for the component. Start the &lt;code class=&quot;language-text&quot;&gt;npm run dev&lt;/code&gt; we see the following page in the browser.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/649eb107d183c8b3fd4eadb49300c13f/77352/svelte.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.177215189873415%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAG+AD//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAEFAn//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAE/IX//2gAMAwEAAgADAAAAEAPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGRABAAIDAAAAAAAAAAAAAAAAAQARECEx/9oACAEBAAE/EEXjUBva4//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Svelte&quot;
+        title=&quot;Svelte&quot;
+        src=&quot;/blog/static/649eb107d183c8b3fd4eadb49300c13f/828fb/svelte.jpg&quot;
+        srcset=&quot;/blog/static/649eb107d183c8b3fd4eadb49300c13f/ff44c/svelte.jpg 158w,
+/blog/static/649eb107d183c8b3fd4eadb49300c13f/a6688/svelte.jpg 315w,
+/blog/static/649eb107d183c8b3fd4eadb49300c13f/828fb/svelte.jpg 630w,
+/blog/static/649eb107d183c8b3fd4eadb49300c13f/0ede0/svelte.jpg 945w,
+/blog/static/649eb107d183c8b3fd4eadb49300c13f/3ac88/svelte.jpg 1260w,
+/blog/static/649eb107d183c8b3fd4eadb49300c13f/77352/svelte.jpg 1919w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Building A Counter&lt;/h3&gt;
+&lt;p&gt;For simple use case I will be building a simple counter with SvelteJS. This is what the &lt;code class=&quot;language-text&quot;&gt;main.js&lt;/code&gt; looks like now.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; App &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./App.svelte&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; app &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  target&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And this is what the &lt;code class=&quot;language-text&quot;&gt;App.svelte&lt;/code&gt; looks like.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  let counter = 0;
+
+  function incrementCounter() {
+    counter += 1;
+  }
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;counter&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;&lt;span class=&quot;token namespace&quot;&gt;on:&lt;/span&gt;click&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;incrementCounter&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Increment&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    margin: 0;
+    color: black;
+    font-size: 4em;
+    font-weight: 600;
+  }
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/dc896/increment.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.278481012658226%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3wUH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxABAAMAAAAAAAAAAAAAAAAAAQAQEf/aAAgBAQABPyGBlf/aAAwDAQACAAMAAAAQgA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAYEAEBAAMAAAAAAAAAAAAAAAARAQAQIf/aAAgBAQABPxDCWL11/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Increment Button&quot;
+        title=&quot;Increment Button&quot;
+        src=&quot;/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/828fb/increment.jpg&quot;
+        srcset=&quot;/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/ff44c/increment.jpg 158w,
+/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/a6688/increment.jpg 315w,
+/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/828fb/increment.jpg 630w,
+/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/0ede0/increment.jpg 945w,
+/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/3ac88/increment.jpg 1260w,
+/blog/static/434e118b2fea300b7a0ac4a4b3c6bbbb/dc896/increment.jpg 1294w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now this is a simple example to show to build web apps with svelte and the post is already long enough so that it for today.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 106 - Differences Between Segmentation And Paging]]></title><description><![CDATA[In the last few days we have learned about memroy management and how techniques like paging and segmentaiton aer used to manage memroy in…]]></description><link>https://zainsci.github.io/blog/day-106/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-106/</guid><pubDate>Fri, 16 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In the last few days we have learned about memroy management and how techniques like paging and segmentaiton aer used to manage memroy in the operating system. Now we will be looking on some key differences between paging and segmentation.&lt;/p&gt;
+&lt;p&gt;So what are some of the key differences of paging and sengmentation.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The segments vary in size while the pages do not vary in size.&lt;/li&gt;
+&lt;li&gt;The segments are specified by the programmer to the compiler or assembler while the compiler or memory management system itself divides the program into pages.&lt;/li&gt;
+&lt;li&gt;There is no internal fragmentation in segmentation but there is internal fragmentation in paging within frames.&lt;/li&gt;
+&lt;li&gt;Segmentation suffers from external fragmentations but there is no external fragmentation in paging.&lt;/li&gt;
+&lt;li&gt;The OS must maintain a segment table for each process to show the load address and length of segment also must maintain a page table to show how much frames are being used by each page.&lt;/li&gt;
+&lt;li&gt;The OS must maintain a list of free holes in the memory and a free list of frames.&lt;/li&gt;
+&lt;li&gt;The processor uses segment number and offset to calculate absolute address and it also uses page number to calculate absolute address.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Day 105 - Memory Segmentation]]></title><description><![CDATA[In the last post we learned that Paging is a part of the virtual memory that allows the OS to execede the limit of the physical memory by…]]></description><link>https://zainsci.github.io/blog/day-105/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-105/</guid><pubDate>Thu, 15 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In the last post we learned that Paging is a part of the virtual memory that allows the OS to execede the limit of the physical memory by letting it draw blocks of data called pages from the secondary storage into the main memroy when needed for execution. Now we will be looking at segmentation.&lt;/p&gt;
 &lt;h3&gt;What Is Segmentation?&lt;/h3&gt;
 &lt;p&gt;Segmentation is a porcess that breaks a program into logical segments and allocates the space for these segemnts in the memory separately. The segments can be of many lengths and are more flexible. The programmer can use segments to tell the systems to bring certain data always together to the memory. The downside of segments is that they have to be managed by the programmer no matter what. Segmentation suffers from external fragmentation that is more difficult to deal with.&lt;/p&gt;
 &lt;p&gt;The systems having a paging memory management must handle the mapping of all the logical addresses to the physical addresses. In a paged environment, the user’s view of the memory is very different from the system’s view of memory. The user sees the memory as a collection of segments of different sizes of a program with no particular order in them.&lt;/p&gt;
