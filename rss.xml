@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Apr 2021 11:57:56 GMT</lastBuildDate><item><title><![CDATA[Day 107 - Svelte, A JavaScript FrontEnd Framework]]></title><description><![CDATA[Svelte is a JavaScript FrontEnd Framework just like React, Vue and Angular which is used to build frontend user interfaces. Its a “tool for…]]></description><link>https://zainsci.github.io/blog/day-107/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-107/</guid><pubDate>Sat, 17 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Svelte is a JavaScript FrontEnd Framework just like React, Vue and Angular which is used to build frontend user interfaces. Its a “tool for building fast web applications”. It is components based framework.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 19 Apr 2021 10:36:20 GMT</lastBuildDate><item><title><![CDATA[Day 108 - Conditionals And Events In Svelte]]></title><description><![CDATA[Yesterday we saw what SvelteJS is and why it is different from other JS frameworks like React and Vue etc. We also build a little counter…]]></description><link>https://zainsci.github.io/blog/day-108/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-108/</guid><pubDate>Sun, 18 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Yesterday we saw what SvelteJS is and why it is different from other JS frameworks like React and Vue etc. We also build a little counter with it and now we will be building a little Todo List with it and tomorrow again will make the list more better and functional than it is today.&lt;/p&gt;
+&lt;p&gt;Again started with install SvelteJS by using the following command.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;User:~/svelte$ npx degit sveltejs/template svelte-demo
+User:~/svelte$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;
+User:~/svelte$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ToDo List&lt;/h3&gt;
+&lt;p&gt;We will be building a Todo List with SvelteJS. We can create an item and when we click on it it will cross the item. It is a simple application just like the last one but in this we will be learning about some more things about SvelteJS like using conditionals and Loops in the compoents.&lt;/p&gt;
+&lt;p&gt;I removed all the boiler plate and create two new files, &lt;code class=&quot;language-text&quot;&gt;list.svelte&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;item.svelte&lt;/code&gt; in the src directory. Here’s what &lt;code class=&quot;language-text&quot;&gt;item.svelte&lt;/code&gt; looks like.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;svelte&quot;&gt;&lt;pre class=&quot;language-svelte&quot;&gt;&lt;code class=&quot;language-svelte&quot;&gt;&amp;lt;script&amp;gt;
+  export let name;
+  let strike = false;
+
+  function strikeItem() {
+    strike = !strike;
+  }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;div class=&amp;quot;item&amp;quot; on:click={strikeItem}&amp;gt;
+  &amp;lt;div class={strike ? &amp;quot;item-name strike&amp;quot; : &amp;quot;item-name&amp;quot;}&amp;gt;
+    {name}
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In it we are first exporting a var &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; which is provided by the parent component &lt;code class=&quot;language-text&quot;&gt;list.svelte&lt;/code&gt; as a prop. boolean strike for checking if the item was clicked on and function &lt;code class=&quot;language-text&quot;&gt;strikeItem&lt;/code&gt; to change the boolean value if the item was clicked.&lt;/p&gt;
+&lt;h3&gt;Events &amp;#x26; Event Modifiers in Svelte&lt;/h3&gt;
+&lt;p&gt;In the &lt;code class=&quot;language-text&quot;&gt;.item&lt;/code&gt; tag we see an attribute &lt;code class=&quot;language-text&quot;&gt;on:click&lt;/code&gt;. The keyword &lt;code class=&quot;language-text&quot;&gt;on&lt;/code&gt; followd by a colon &lt;code class=&quot;language-text&quot;&gt;:&lt;/code&gt; is how we listen for events in Svelte. &lt;code class=&quot;language-text&quot;&gt;on:click&lt;/code&gt; means to listen for event that is clicking the item in this case and in braces call the funciton to handle the event which changes the vaule of the boolean.&lt;/p&gt;
+&lt;p&gt;Every event that you can use in JS or HTML can be used is Svelte with &lt;code class=&quot;language-text&quot;&gt;on:&lt;/code&gt; followed by the event name like &lt;code class=&quot;language-text&quot;&gt;on:mousemove&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;on:submit&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;on:focus&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;on:dblclick&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;on:drag&lt;/code&gt; etc.&lt;/p&gt;
+&lt;p&gt;We can also use Event Modifiers in SvelteJS by using a pipe sign after the event name and adding the name of the modifier like this.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;svelte&quot;&gt;&lt;pre class=&quot;language-svelte&quot;&gt;&lt;code class=&quot;language-svelte&quot;&gt;&amp;lt;button on:click|preventDefault={function} type=&amp;quot;submit&amp;quot;&amp;gt;
+    Click
+&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this example, clicking the button will prevent the default from happening which in this case will reload the page but will be prevented by the event modifier. If we have to do this in vanila JS it would look like this.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Conditionals In Svelte&lt;/h3&gt;
+&lt;p&gt;This &lt;code class=&quot;language-text&quot;&gt;strike ? &amp;quot;item-name strike&amp;quot; : &amp;quot;item-name&amp;quot;&lt;/code&gt; is just a ternary operator in JS which check if the condition is true return this or else this. &lt;code class=&quot;language-text&quot;&gt;condition ? if true : if false&lt;/code&gt;. Conditionals in Svelte work like following.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;svelte&quot;&gt;&lt;pre class=&quot;language-svelte&quot;&gt;&lt;code class=&quot;language-svelte&quot;&gt;{#if condition}
+    &amp;lt;!-- Do Someting --&amp;gt;
+{/if}
+
+&amp;lt;!-- Or using else statements --&amp;gt;
+{#if condition}
+    &amp;lt;!-- Do Someting --&amp;gt;
+{:else}
+    &amp;lt;!-- Do Someting --&amp;gt;
+{/if}
+
+&amp;lt;!-- Nesting IFs --&amp;gt;
+{#if condition}
+    &amp;lt;!-- Do Someting --&amp;gt;
+{:else if anotherCondition}
+    &amp;lt;!-- Do Someting --&amp;gt;
+{/if}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Looping In Svelte&lt;/h3&gt;
+&lt;p&gt;Next is the &lt;code class=&quot;language-text&quot;&gt;list.svelte&lt;/code&gt; file and it looks like this.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;svelte&quot;&gt;&lt;pre class=&quot;language-svelte&quot;&gt;&lt;code class=&quot;language-svelte&quot;&gt;&amp;lt;script&amp;gt;
+  import Item from &amp;quot;./item.svelte&amp;quot;;
+
+  let items = [];
+  let value;
+
+  function addItem() {
+    items[items.length] = value;
+    value = &amp;quot;&amp;quot;;
+  }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;div class=&amp;quot;wrapper&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;items&amp;quot;&amp;gt;
+    {#each items as item}
+      &amp;lt;Item name={item} /&amp;gt;
+    {/each}
+  &amp;lt;/div&amp;gt;
+  &amp;lt;form on:submit|preventDefault={addItem}&amp;gt;
+    &amp;lt;input type=&amp;quot;text&amp;quot; bind:value /&amp;gt;
+    &amp;lt;button&amp;gt;Add Item&amp;lt;/button&amp;gt;
+  &amp;lt;/form&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here we are importing first the item component and them using it inside a for loop which in Svelte looks like this.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;svelte&quot;&gt;&lt;pre class=&quot;language-svelte&quot;&gt;&lt;code class=&quot;language-svelte&quot;&gt;{#each items as item}
+    &amp;lt;!-- Do Something With item --&amp;gt;
+{/each}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We are passing the item &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; as a prop to the item component while looping over each item in the &lt;code class=&quot;language-text&quot;&gt;items&lt;/code&gt; array. Then we pass the addItem function to the form which calls the function on &lt;code class=&quot;language-text&quot;&gt;on:submit|preventDefault&lt;/code&gt; event which appends the item to &lt;code class=&quot;language-text&quot;&gt;items&lt;/code&gt; array and prevents the page from reloading. Adding some styling and it works like this.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/895b826c17fa3cb6b4ae856079851625/todo-list.gif&quot; alt=&quot;Todo List&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 107 - Svelte, A JavaScript FrontEnd Framework]]></title><description><![CDATA[Svelte is a JavaScript FrontEnd Framework just like React, Vue and Angular which is used to build frontend user interfaces. Its a “tool for…]]></description><link>https://zainsci.github.io/blog/day-107/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-107/</guid><pubDate>Sat, 17 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Svelte is a JavaScript FrontEnd Framework just like React, Vue and Angular which is used to build frontend user interfaces. Its a “tool for building fast web applications”. It is components based framework.&lt;/p&gt;
 &lt;p&gt;There are many difference between Svelte and other frameworks like React but the main difference can be that Svelte is a compiler and it does not uses Virtual DOM for rendering its compoents in the Browser. It will compile your code into Vanila JavaScript at build time while react compiles the components at the run time.&lt;/p&gt;
 &lt;p&gt;I will be taking a break from learning about Operating Systems and instead will foucs on WebDev for some time now. Svelte is the first thing I will be learning about and I have heard alot about it on Twitter and Youtube and now I will be learning the basics of it.&lt;/p&gt;
 &lt;h3&gt;Installation&lt;/h3&gt;
