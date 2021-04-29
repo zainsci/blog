@@ -1,4 +1,148 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 24 Apr 2021 12:05:07 GMT</lastBuildDate><item><title><![CDATA[Day 113 - Page Replacement Algorithms]]></title><description><![CDATA[Page replacement is a way to swap a page that is not being used out of the memory and swap in the page that is requested by the program in…]]></description><link>https://zainsci.github.io/blog/day-113/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-113/</guid><pubDate>Fri, 23 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Page replacement is a way to swap a page that is not being used out of the memory and swap in the page that is requested by the program in the memory. Several algorithms are used to solve this and I have written about two of these algorithms in a previous post which you can find here in &lt;a href=&quot;/blog/day-62/&quot;&gt;Day 62&lt;/a&gt;. In this post I will be writing about one other algorithm that is also used for Page Replacemnt in the VM.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 29 Apr 2021 14:30:40 GMT</lastBuildDate><item><title><![CDATA[Day 117 - Functions In Rust]]></title><description><![CDATA[Last time we looked at Variables, Comments and some of the Types in Rust and now its time for funtions in Rust. A function is a piece of…]]></description><link>https://zainsci.github.io/blog/day-117/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-117/</guid><pubDate>Tue, 27 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last time we looked at Variables, Comments and some of the Types in Rust and now its time for funtions in Rust. A function is a piece of code that peforms a task. It can be reused as many times as you want. You can provide some data to it and it can return some data to you.&lt;/p&gt;
+&lt;h2&gt;Functions In Rust&lt;/h2&gt;
+&lt;p&gt;To define a function in Rust, we use &lt;code class=&quot;language-text&quot;&gt;fn&lt;/code&gt; keyword followed by the function name and paranthesis &lt;code class=&quot;language-text&quot;&gt;()&lt;/code&gt; and then curly braces &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt; after that. These &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt; hold your function code that executes when your function is called.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn print_a_line() {
+    println!(&amp;quot;This is a String!&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Function Parameters&lt;/h3&gt;
+&lt;p&gt;We can provide the function with parameters in the parathesis. We have to tell the compiler outself what the pratmeter type will be. First we write the parameter name and then after that a colon &lt;code class=&quot;language-text&quot;&gt;:&lt;/code&gt; and then we specify a type for the parameter.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn print_a_line(line: &amp;amp;str) {
+    println!()
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Function Return Type&lt;/h3&gt;
+&lt;p&gt;We can also tell the compiler in advance what type of value does the function return will be. We can do so by adding an arrow &lt;code class=&quot;language-text&quot;&gt;-&amp;gt;&lt;/code&gt; after the paranthesis and then specifying the type.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn add(a: i32, b: i32) -&amp;gt; i32 {
+  a + b
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here you see we have a function with two parameters both of which are 32-bit integers and the return type for the function is also a 32-bit integer. Down there we then add two numbers.&lt;/p&gt;
+&lt;p&gt;But in the above code you may some thing that is may be new to you (it is for me) and that is that we are not using any return keyword here. Functions in Rust will by default return the value of the last line in the function which does not have a semi-colon in the end.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn add(a: i32, b: i32) -&amp;gt; i32 {
+  return a + b;
+}
+
+// This function is the same as the above
+fn add(a: i32, b: i32) -&amp;gt; i32 {
+  a + b
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But if you add &lt;code class=&quot;language-text&quot;&gt;return&lt;/code&gt; keyword before something you also have to add a semi-colon at the end too.&lt;/p&gt;
+&lt;p&gt;That it for the functions of Rust and next we will be covering Loops and Conditionals in Rust and after that we will be taking a look at Owndership which is a new concept to me and is also a unique feature in Rust Programming Language. See you all next time.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 116 - Comments, Variables & Types In Rust]]></title><description><![CDATA[In the last post we installed  or Rust compiler and wrote a little hello world program, compiled it and executed it and now we will be…]]></description><link>https://zainsci.github.io/blog/day-116/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-116/</guid><pubDate>Mon, 26 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In the last post we installed &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; or Rust compiler and wrote a little hello world program, compiled it and executed it and now we will be learning about the basics of Rust programming language. These include Variables, Comments, Types etc.&lt;/p&gt;
+&lt;h3&gt;Comments&lt;/h3&gt;
+&lt;p&gt;To write comments in Rust programming language we use double backslashes and triple if you want to write documentation comments. Documentation comments also support markdown syntax.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;// This is a comment in Rust
+// This is another comment
+/// This is a Documentation Comment
+/// And it supports Markdown syntax
+/// Like
+/// # Documentation
+/// [This is a Link](https://zainsci.github.io)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Variables&lt;/h3&gt;
+&lt;p&gt;To assign variables in Rust we use &lt;code class=&quot;language-text&quot;&gt;let&lt;/code&gt; keyword followed by the variable name and an equal sign &lt;code class=&quot;language-text&quot;&gt;=&lt;/code&gt; and the value of the variable. Rust is a statically and strongly typed language that means that you either tell the compiler what type a variable is or it will guess it self.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let a: i32 = 10; // a is a 32-bit integer type
+    let b = 10; // b is also a 32-bit integer type
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here &lt;code class=&quot;language-text&quot;&gt;i32&lt;/code&gt; is the interger type and it is a 32 bit integer. If you assign a variable again somewhere with the same name it will destroy the previous one and will store the new value with the new type in it.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let a: i32 = 10;
+    let a: &amp;amp;str = &amp;quot;Hello World!&amp;quot;;
+
+    println!(a); // Hello World!
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Another thing about variables in Rust is that all the variables assigend are immutable in Rust by default meaning that if you try to change the value of a variable it will throw an error tellin you that the variable is immutable.&lt;/p&gt;
+&lt;p&gt;To go around this we can use a keyword &lt;code class=&quot;language-text&quot;&gt;mut&lt;/code&gt; after the &lt;code class=&quot;language-text&quot;&gt;let&lt;/code&gt; keyword to tell the compiler that this var is mutable and will be changed later in the program.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let a = &amp;quot;immutable&amp;quot;; // This var is immutable
+    a = &amp;quot;something&amp;quot;; // Will throw an error
+
+    let mut b = &amp;quot;mutable&amp;quot;; // This var is mutable
+    b = &amp;quot;something&amp;quot;; // Will not throw an error
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But the compiler will also complain to you if you add &lt;code class=&quot;language-text&quot;&gt;mut&lt;/code&gt; before a var but didn’t changed its value anywhere in the code.&lt;/p&gt;
+&lt;p&gt;Rust compiler will also complain to you if there is a unused var in the program and to handle that error the complier will also tell you to add an underscore &lt;code class=&quot;language-text&quot;&gt;_&lt;/code&gt; before the var.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let a = 1; // Error: unused variable
+    let _b = 1; // No error
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s not all about variable theres more to them but for now this is all we need to have to take care of and now up to types.&lt;/p&gt;
+&lt;h3&gt;Types In Rust&lt;/h3&gt;
+&lt;p&gt;There are many types in Rust language and the ones that I may have read about for the first time myself but we will not be looking at all of them for now. We will onyl know some of them that will be enough for us to start working with Rust.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Boolean types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;true - For truthy value&lt;/li&gt;
+&lt;li&gt;false - For falsy value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Integer types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;signed interger types&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i8&lt;/code&gt; - 8-bit integer from 0 to (2^7) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i16&lt;/code&gt; - 16-bit integer from -(2^15) to (2^15) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i32&lt;/code&gt; - 32-bit integer from -(2^31) to (2^31) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i64&lt;/code&gt; - 64-bit integer from -(2^63) to (2^63) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i128&lt;/code&gt; - 128-bit integer from -(2^127) to (2^127) - 1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;unsigned interger types&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;u8&lt;/code&gt; - 8-bit integer from 0 to (2^8) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;u16&lt;/code&gt; - 16-bit integer from 0 to (2^16) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;u32&lt;/code&gt; - 32-bit integer from 0 to (2^32) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;u64&lt;/code&gt; - 64-bit integer from 0 to (2^64) - 1&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;u128&lt;/code&gt; - 128-bit integer from 0 to (2^128) - 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Floating-Point numbers&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;f32&lt;/code&gt; - binary32 floating-point numbers&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;f64&lt;/code&gt; - binary64 floating-point numbers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Textual types&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;char&lt;/code&gt; - Char type for unicode values&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;amp;str&lt;/code&gt; - String type for string values&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Next will be funcions and some more basics.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 115 - RUST Programming Language]]></title><description><![CDATA[Taking another break from OS study and will be learning another programming language and that will be Rust which is a “blazingly fast and…]]></description><link>https://zainsci.github.io/blog/day-115/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-115/</guid><pubDate>Sun, 25 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Taking another break from OS study and will be learning another programming language and that will be Rust which is a “blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other languages”. But first of all:&lt;/p&gt;
+&lt;h3&gt;Why Learn This Language?&lt;/h3&gt;
+&lt;p&gt;The primary reason I can think of learning this language is beasue of WebAssembly. Now what is a WebAssembly? WebAssembly is a binary-code that allows a user to execute code written in languages other than JavaScript on the web at near native speed. Rust is one of the languages that can be compiled to WebAssembly and used to build high performance apps on the web.&lt;/p&gt;
+&lt;p&gt;Other reasons for learning this language is that it guarantees memory safety, easy to learn (for those who already know C or C++) and is compatible with all operating systems. Now we will begin learning Rust but first we need do have to take care of some initial setup.&lt;/p&gt;
+&lt;h3&gt;Initial Setup&lt;/h3&gt;
+&lt;p&gt;To install the Rust compiler on Windows Machine, Go to Rust’s website and download the Rust compiler .exe file and install it as any other software. And if you are on UNIX based operating systems it is much easy you just need to run the following command.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; --proto &lt;span class=&quot;token string&quot;&gt;&apos;=https&apos;&lt;/span&gt; --tlsv1.2 -sSf https://sh.Rustup.rs &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After installation you can type the following command in the shell to be sure that the installation was successful.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;cmd&quot;&gt;&lt;pre class=&quot;language-cmd&quot;&gt;&lt;code class=&quot;language-cmd&quot;&gt;C:\Users\User&amp;gt; rustc --version
+Rustc 1.51.0 (2fd73fabe 2021-03-23)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After that we will be needing a code editor for writing our Rust code and for that I will be using Visual Studio Code.&lt;/p&gt;
+&lt;h3&gt;Writing First Rust Program&lt;/h3&gt;
+&lt;p&gt;Every Rust file ends with &lt;code class=&quot;language-text&quot;&gt;.rs&lt;/code&gt; just like how python file ends with &lt;code class=&quot;language-text&quot;&gt;.py&lt;/code&gt;. Now first I created a directory named Rust and then created a file called &lt;code class=&quot;language-text&quot;&gt;main.rs&lt;/code&gt; in it and opened it in VS-Code.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; Rust
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; main.rs
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; code &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is what a simple Rust program looks like. There is a main function just like C and C++ that is the entry point to your program.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    println!(&amp;quot;Hello World!&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To run this, first we have to compile it and to compile a Rust program there are two ways, either use &lt;code class=&quot;language-text&quot;&gt;Rustc&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;cargo&lt;/code&gt;. For a small program we can simply use &lt;code class=&quot;language-text&quot;&gt;Rustc&lt;/code&gt;. &lt;code class=&quot;language-text&quot;&gt;cargo&lt;/code&gt; is used to compile large projects.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; rustc main.rs
+./main
+Linux&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt; ./main
+Hello World&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that it for today and in the next post we will be learning about variables, comments, functions and all other basics of Rust programming language.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 114 - Thrashing In Memory]]></title><description><![CDATA[This will be the last post about Virtual Memory and it will be about thrashing which is condition where most of the CPU time is spent in…]]></description><link>https://zainsci.github.io/blog/day-114/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-114/</guid><pubDate>Sat, 24 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This will be the last post about Virtual Memory and it will be about thrashing which is condition where most of the CPU time is spent in swapping pages rather that doing actual productive computation. So let’s get to it.&lt;/p&gt;
+&lt;h3&gt;What Is Thrashing?&lt;/h3&gt;
+&lt;p&gt;The VM allows the system to process many processes at the same time by allowing to use the secondary storage as a backing place for most of the parts of a process which then are swapped in and out of the real memory during the process execution. The VM allows the system to use more memory than it actually has with the help of a secondary storage which is mostly a hardrive or a solid-state drive.&lt;/p&gt;
+&lt;p&gt;If too many processes are working at the same time, it will cause many page faults to occur in the memory and it will happen than the CPU will be spending most of its computation time in solving these page faults rather than doing the acutal computation to complete the execution of these processes. This situtaion where the CPU is not doing work very productively is called &lt;strong&gt;thrashing&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Thrashing is caused by the under allocation of the minimum number of pages required by a process, forcing it to continuously cause page faults. The system can detect thrashing by evalutaing the level of CPU utilization and compare it to the level of multiprogramming and so this can be prevented by reducing the level of multiprogramming in a system.&lt;/p&gt;
+&lt;div style=&quot;display: flex; flex-direction: column; align-items: center&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter9/9_18_Thrashing.jpg&quot; alt=&quot;Thrashinh Graph&quot;&gt;&lt;/p&gt;
+&lt;div style=&quot;font-size: 10px&quot;&gt;
+&lt;p&gt;Image Courtesy: &lt;a href=&quot;https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/9_VirtualMemory.html&quot;&gt;CS.UIC.EDU&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;This above grapgh represents thrashing. From this we can see that the OS must regulate the number of active processes to prevent the onset of thrashing. That’s all for today and I thing there are only two more topics left for me to study in OS and these are I/O management and Security.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 113 - Page Replacement Algorithms]]></title><description><![CDATA[Page replacement is a way to swap a page that is not being used out of the memory and swap in the page that is requested by the program in…]]></description><link>https://zainsci.github.io/blog/day-113/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-113/</guid><pubDate>Fri, 23 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Page replacement is a way to swap a page that is not being used out of the memory and swap in the page that is requested by the program in the memory. Several algorithms are used to solve this and I have written about two of these algorithms in a previous post which you can find here in &lt;a href=&quot;/blog/day-62/&quot;&gt;Day 62&lt;/a&gt;. In this post I will be writing about one other algorithm that is also used for Page Replacemnt in the VM.&lt;/p&gt;
 &lt;p&gt;In Day 62, we learned about FIFO (First In, First Out) and POR (Page Optimal Replacement) Page Replacement algorithms and now we will be learning about Least Recently Used (LRU) algorithm.&lt;/p&gt;
 &lt;h3&gt;Least Recently Used (LRU)&lt;/h3&gt;
 &lt;p&gt;Least Recently Used (LRU) is a page replcement algorithm that replaces the page whose time since the last reference is greater than any other page in the memory. This requires a timestamp recording for each page when it is loaded into the memory. The page that is then the oldest in the memory is swapped out of it to make space for some other page which is requested to be loaded. The overhead in such a system is that of a maintaining all the timestamps which is generally a linked list and the time it takes to find the oldest value.&lt;/p&gt;
@@ -15,7 +159,7 @@
 &lt;li&gt;Second Chance-Algorithm&lt;/li&gt;
 &lt;li&gt;Enhanced Second-Chance Algorithm&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;We will look into these in the next post.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 112 - Page Replacement In Virtual Memroy]]></title><description><![CDATA[So far in Virtual Memory we have learned what virtual memory is and one of the techniques that are used to implement VM. Now we will be…]]></description><link>https://zainsci.github.io/blog/day-112/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-112/</guid><pubDate>Thu, 22 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;So far in Virtual Memory we have learned what virtual memory is and one of the techniques that are used to implement VM. Now we will be looking at Page Replacement which is what is says. It a way to replace pages in the memory in multiprogramming systems.&lt;/p&gt;
+&lt;p&gt;We will look into may some next time.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 112 - Page Replacement In Virtual Memroy]]></title><description><![CDATA[So far in Virtual Memory we have learned what virtual memory is and one of the techniques that are used to implement VM. Now we will be…]]></description><link>https://zainsci.github.io/blog/day-112/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-112/</guid><pubDate>Thu, 22 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;So far in Virtual Memory we have learned what virtual memory is and one of the techniques that are used to implement VM. Now we will be looking at Page Replacement which is what is says. It a way to replace pages in the memory in multiprogramming systems.&lt;/p&gt;
 &lt;p&gt;In multiprogramming systems, almost all of the programs use half of the memroy of their size. For example the program with 10 pages only actually uses 5 pages. The demand paging mechanism saves the I/O time necessary to load the five pages that are never used. In this case the degree of multiprogramming should be increased.&lt;/p&gt;
 &lt;p&gt;Increase in the degree of the multiprogramming may leads to problems like over allocation of memory.&lt;/p&gt;
 &lt;p&gt;If a page fault occurs, the OS checks the internal page table. It determines where the page is in the disk but does not find any free frame in the memory to swap it into. For this situation, the OS has following ways for it to be solved.&lt;/p&gt;
