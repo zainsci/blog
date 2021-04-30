@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 30 Apr 2021 11:23:50 GMT</lastBuildDate><item><title><![CDATA[Day 119 - Cargo Compiler In Rust]]></title><description><![CDATA[Before we learn any more about the Rust Syntax there is one more thing that we should learn about and that is the Cargo Compiler that also…]]></description><link>https://zainsci.github.io/blog/day-119/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-119/</guid><pubDate>Thu, 29 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Before we learn any more about the Rust Syntax there is one more thing that we should learn about and that is the Cargo Compiler that also comes with the &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; that we use to compile the Rust program. But whats the difference between &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;cargo&lt;/code&gt;. The short answer is that the &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; is used to compile programs that are small and often are only one to some files big.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 30 Apr 2021 16:39:21 GMT</lastBuildDate><item><title><![CDATA[Day 120 - Control Flow In Rust]]></title><description><![CDATA[Now that we know some basics of Rust and how to import and use packages called crates and now we will be taking a look at Rust Control Flow…]]></description><link>https://zainsci.github.io/blog/day-120/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-120/</guid><pubDate>Fri, 30 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Now that we know some basics of Rust and how to import and use packages called crates and now we will be taking a look at Rust Control Flow. Things like If statements, Loops etc. If statements and loops in Rust have a syntax simillar to Python but added with curly braces. Now lets get to it.&lt;/p&gt;
+&lt;h2&gt;If-Else Statements&lt;/h2&gt;
+&lt;p&gt;If-Else statements in Rust are the same as any other language but with a small difference. In other languages like C and C++ we use to contain conditions in paranthesis but in Rust we write conditions the way we write in Python and after than curly braces and inside those we write the code that needs to be executed if it meet the conditions.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let num = 8;
+
+    if num &amp;gt; 20 {
+        println!(&amp;quot;Bigger than 20&amp;quot;);
+    } else if num &amp;gt; 10 {
+        println!(&amp;quot;Smaller than 20 But Bigger than 10&amp;quot;);
+    } else {
+        println!(&amp;quot;Smaller Than 10&amp;quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can use else statements and if statements with else statements to control the flow of the program. We can also return a value from if statements and store them in variables like so.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let age = 50;
+
+    let id_old = if age &amp;gt; 40 {
+        true
+    } else {
+        false
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Switch Stetements&lt;/h2&gt;
+&lt;p&gt;Rust does not have a switch keyword but there is one way to do switch statements in Rust and that is using match. Match looks for a condition and will run the statement inside it which meets that condition.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let age = 20;
+
+    match age {
+        15 =&amp;gt; println!(&amp;quot;15&amp;quot;),
+        16 =&amp;gt; println!(&amp;quot;16&amp;quot;),
+        17 =&amp;gt; println!(&amp;quot;17&amp;quot;),
+        18 =&amp;gt; println!(&amp;quot;18&amp;quot;),
+        n if n &amp;gt; 65 =&amp;gt; println!(&amp;quot;Retired&amp;quot;),
+        _ =&amp;gt; println!(&amp;quot;Invalid&amp;quot;) // Else Statement
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Loops&lt;/h2&gt;
+&lt;p&gt;Now next thing in Control Flow is Loops. Infinite Loops in Rust is quite simple than any other language that I know of so far. You just use loop keyword and it will start infinite loop.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    let mut i = 0;
+
+    loop {
+        if i == 10 {
+            break;
+        }
+
+        println!(&amp;quot;{}&amp;quot;, i);
+        i += 1;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;you can capture the output from a loop assigning the loop to a variable the same way we did with the if and else statements.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;let mut i = 0;
+
+let high_num = loop {
+    if i == 100 {
+        break i;
+    }
+
+    i += 1;
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;While Loops&lt;/h3&gt;
+&lt;p&gt;Same as anyother language.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;let mut i = 0;
+
+while i &amp;lt; 65 {
+    i += 1;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;For Loops&lt;/h3&gt;
+&lt;p&gt;Rust do for loops a little different than other languages.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;for i in (0..100) {
+    println!(&amp;quot;{}&amp;quot;, i);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For loops will by default increment the counter by one but if you want you can use &lt;code class=&quot;language-text&quot;&gt;step_by()&lt;/code&gt; to step as many times as you want.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;for i in (0..100).step_by(2) {
+    println!(&amp;quot;{}&amp;quot;, i);  // 0, 2, 4, 6, 8, ...
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Day 119 - Cargo Build System In Rust]]></title><description><![CDATA[Before we learn any more about the Rust Syntax there is one more thing that we should learn about and that is the Cargo Compiler that also…]]></description><link>https://zainsci.github.io/blog/day-119/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-119/</guid><pubDate>Thu, 29 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Before we learn any more about the Rust Syntax there is one more thing that we should learn about and that is the Cargo Compiler that also comes with the &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; that we use to compile the Rust program. But whats the difference between &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;cargo&lt;/code&gt;. The short answer is that the &lt;code class=&quot;language-text&quot;&gt;rustc&lt;/code&gt; is used to compile programs that are small and often are only one to some files big.&lt;/p&gt;
 &lt;p&gt;On the other hand, If you want to code a big project which also require some external packages in the production, then you need to learn about the cargo compiler.&lt;/p&gt;
 &lt;h3&gt;Cargo&lt;/h3&gt;
 &lt;p&gt;Well actually cargo is not a compiler but a build system and a package manager just like &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; in Python and &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; in NodeJs. It handles many things for you like compiling your projects and downloading dependency packages for you from the web on which your project relies on and so on. To start with cargo first check if have it installed on your system.&lt;/p&gt;
