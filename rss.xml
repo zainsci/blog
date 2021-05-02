@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 30 Apr 2021 16:39:21 GMT</lastBuildDate><item><title><![CDATA[Day 120 - Control Flow In Rust]]></title><description><![CDATA[Now that we know some basics of Rust and how to import and use packages called crates and now we will be taking a look at Rust Control Flow…]]></description><link>https://zainsci.github.io/blog/day-120/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-120/</guid><pubDate>Fri, 30 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Now that we know some basics of Rust and how to import and use packages called crates and now we will be taking a look at Rust Control Flow. Things like If statements, Loops etc. If statements and loops in Rust have a syntax simillar to Python but added with curly braces. Now lets get to it.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[zainsci-blog]]></title><description><![CDATA[Hello There! I am zainsci and I am a Web-Developer and currently learning Operating Systems, NextJS, and 日本語. This blog is where I post what I learn in a day about programming.]]></description><link>https://zainsci.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 May 2021 12:10:12 GMT</lastBuildDate><item><title><![CDATA[Day 122 - Structs And Traits In Rust]]></title><description><![CDATA[A struct or structure is a custom Data Type that is a collection of related values that are put together to form a meaningful group. They…]]></description><link>https://zainsci.github.io/blog/day-122/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-122/</guid><pubDate>Sun, 02 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A struct or structure is a custom Data Type that is a collection of related values that are put together to form a meaningful group. They are simillar to Object attributes as in Object Oriented Languages. Structs in Rust are simillar to how we define them in C and C++ but structs in Rust can do more than structs in C and C++.&lt;/p&gt;
+&lt;h3&gt;Structs&lt;/h3&gt;
+&lt;p&gt;To define a struct in Rust we use the struct keyword followed by the name of the struct and then &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt; and inside these we put the values that are related to the struct.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;struct SuperHero {
+    name: String,
+    hero_name: String,
+    age: u32,
+    active: bool,
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To use the struct we define a variable to which we will assign the struct with the name and age value inside the &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt; which we can later use in other places.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;let bruce = SuperHero {
+    name: String::from(&amp;quot;Bruce&amp;quot;),
+    hero_name: String::from(&amp;quot;Batman&amp;quot;),
+    age: 30,
+    active: true,
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can use the dot notation to reference a property of the struct and can also use the dot notation to update the property of the Person.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;bruce.name // Bruce
+bruce.name = String::from(&amp;quot;Bruce Wayne&amp;quot;);
+bruce.name // Bruce Wayne&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But to allow the values of a struct to be updates later, the instance must be mutable.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;let mut bruce = SuperHero {
+    // ...
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Creating Instaces With Values From Other Instances&lt;/h3&gt;
+&lt;p&gt;We can also create instances from other inctances with sharing the values of other instances as well. For example:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;let mut clark = SuperHero {
+    name: String::from(&amp;quot;Clark Kent&amp;quot;),
+    hero_name: String::from(&amp;quot;SuperMan&amp;quot;),
+    ..bruce
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now clark will inherit the same values as the bruce except the ones we defined ourselves like &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;hero_name&lt;/code&gt;. This show that &lt;code class=&quot;language-text&quot;&gt;clark&lt;/code&gt; is the same age as &lt;code class=&quot;language-text&quot;&gt;bruce&lt;/code&gt; and is also active.&lt;/p&gt;
+&lt;h3&gt;Struct Methods&lt;/h3&gt;
+&lt;p&gt;As said before that Rust structs are much more than the C and C++ becuase we can implement methods on the struct that we can call on the strcut to modify some value inside the instance of the struct. We implement a method by using &lt;code class=&quot;language-text&quot;&gt;impl&lt;/code&gt; keyword and after that the name of the struct on which we want to implement it and then inside the &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt; we define a new function with &lt;code class=&quot;language-text&quot;&gt;&amp;amp;self&lt;/code&gt; as the first argument which represents the instance itself just like the keyword &lt;code class=&quot;language-text&quot;&gt;self&lt;/code&gt; in Python and &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; in JavaScript.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;impl Hero {
+    fn say_my_name(&amp;amp;self) {
+        println!(&amp;quot;{}&amp;quot;, slef.name)
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;bruce.say_my_name() // Bruce Wayne&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Tuple Struct&lt;/h3&gt;
+&lt;p&gt;Rust also have Tuple Struct which we define the same way but without any name and &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;struct RGB(i32, i32, i32);
+
+let black = RGB(0, 0, 0);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can reference a value of the tuple struct by using its index number with dor notation.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;black.0 // 0
+black.1 // 0
+black.2 // 0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that all for Struct. This one was a little simple for me to understand as I have worked with struct before in C while learning about Linked Lists and Hash Tables but still Rust struct are more powerful than they are in C and maybe some other languages.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 121 Enums In Rust]]></title><description><![CDATA[Now we know all the basics of Rust Programming Language like Control Flow Statements, Variables, Comments and Functions etc. Now we will be…]]></description><link>https://zainsci.github.io/blog/day-121/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-121/</guid><pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Now we know all the basics of Rust Programming Language like Control Flow Statements, Variables, Comments and Functions etc. Now we will be taking a look at intermediate concepts of Rust Programming Language. Things like Enums, Structs and Traits etc. For today we will try to understand what Enums are.&lt;/p&gt;
+&lt;h3&gt;Enums&lt;/h3&gt;
+&lt;p&gt;Enumerations or simply Enums allow us to define our own custom types. These data types consists of predefined named values called elements or members etc. To create an Enum in Rust we use the following syntax.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+  // Creating an enum
+  enum Name {
+    Member01,
+    Member02,
+    // ...
+    MemberN
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We use the &lt;code class=&quot;language-text&quot;&gt;enum&lt;/code&gt; keywork followed by the name of the enum and then curly braces and inside those curly braces comes the values or members.&lt;/p&gt;
+&lt;p&gt;Now lets create an enum named &lt;code class=&quot;language-text&quot;&gt;Fruits&lt;/code&gt; and see where can it be helpful.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+  enum Fruit {
+    Apple,
+    Orange,
+    Kiwi
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To reference an enum value we use double colon after the enum name and then the name of the value.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;let apple = Fruit::Apple;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Members of the enums also have a value inside the enum. For example startig from zero the Kiwi fruit will have a value of 2.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;println!(&amp;quot;{}&amp;quot;, Fruit::Kiwi as i32); // 2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But we can also define values to the elements of enums like so.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;enum Company {
+  Apple = &amp;quot;APL&amp;quot;,
+  Tesla = &amp;quot;TSLA&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is all about Enums for now. This might be a simple thing for some but I still don’t know where this thing could be useful in programming. Ofcourse this is useful in programming that is why it is there. But maybe I will come across something that will let me know the importance of enums in programming but for now lets just leave it like this.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Day 120 - Control Flow In Rust]]></title><description><![CDATA[Now that we know some basics of Rust and how to import and use packages called crates and now we will be taking a look at Rust Control Flow…]]></description><link>https://zainsci.github.io/blog/day-120/</link><guid isPermaLink="false">https://zainsci.github.io/blog/day-120/</guid><pubDate>Fri, 30 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Now that we know some basics of Rust and how to import and use packages called crates and now we will be taking a look at Rust Control Flow. Things like If statements, Loops etc. If statements and loops in Rust have a syntax simillar to Python but added with curly braces. Now lets get to it.&lt;/p&gt;
 &lt;h2&gt;If-Else Statements&lt;/h2&gt;
 &lt;p&gt;If-Else statements in Rust are the same as any other language but with a small difference. In other languages like C and C++ we use to contain conditions in paranthesis but in Rust we write conditions the way we write in Python and after than curly braces and inside those we write the code that needs to be executed if it meet the conditions.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;rs&quot;&gt;&lt;pre class=&quot;language-rs&quot;&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
