@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><link rel="preload" href="fonts.googleapis.com"/><title>Day 148 - Creating A Design System • Buttons - zainsci-blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="A place for me, zainsci, to share what I learn about computers and programming."/><meta property="og:title" content="zainsci-blog"/><meta property="og:description" content="A place for me, zainsci, to share what I learn about computers and programming."/><meta property="og:image" content="https://zainsci.github.io/potrait.jpg"/><meta property="og:url" content="https://zainsci.github.io/blog"/><meta name="twitter:card" content="summary_large_image"/><meta property="og:site_name" content="zainsci-blog"/><meta name="twitter:image:alt" content="zainsci&#x27;s portrait"/><meta name="next-head-count" content="13"/><link rel="preload" href="/blog/_next/static/css/84d451ea0fea089d896b.css" as="style"/><link rel="stylesheet" href="/blog/_next/static/css/84d451ea0fea089d896b.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/blog/_next/static/chunks/webpack-d2ea490c71c2efdd01c9.js" as="script"/><link rel="preload" href="/blog/_next/static/chunks/framework-9bf9f61c21c28db23d5b.js" as="script"/><link rel="preload" href="/blog/_next/static/chunks/commons-0392153403293a8cddd0.js" as="script"/><link rel="preload" href="/blog/_next/static/chunks/main-06aae30c278b6ca2f76a.js" as="script"/><link rel="preload" href="/blog/_next/static/chunks/pages/_app-d7d985800563919559a7.js" as="script"/><link rel="preload" href="/blog/_next/static/chunks/362-161b6498af4ad75ed6ae.js" as="script"/><link rel="preload" href="/blog/_next/static/chunks/pages/posts/%5Bslug%5D-143c25a509ce81de2368.js" as="script"/></head><body><div id="__next"><header class="header"><div><h3 class="logo">zainsci-blog</h3><div class="nav__toggler"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div></div><nav class="nav"><ul class="nav__list"><li class="nav__item"><a class="nav__link" href="/blog">Home</a></li><li class="nav__item"><a href="https://zainsci.github.io" class="nav__link" target="_blank" rel="noopener noreferrer">Portfolio</a></li><li class="nav__item"><a class="nav__link" href="/blog/about">About</a></li><li class="nav__item"><a class="nav__link" href="/blog/contact">Contact</a></li><li class="nav__item"><div class="toggler"><a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></a></div></li></ul></nav></header><a class="skip-link" href="#main">Skip to main</a><main id="main"><article class="article" itemscope="" itemType="http://schema.org/Article"><div class="share"><p>Share</p><div class="share__buttons"><a href="https://twitter.com/intent/tweet?url=https://zainsci.github.ioday-149&amp;text=Day 148 - Creating A Design System • Buttons
+&amp;hashtags=zainsci,DesignSystem,Design,CSS" target="_blank" rel="noreferrer" class="share__button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=zainsci.github.io%2Fblogday-149" target="_blank" rel="noreferrer" class="share__button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></div></div><header class="article__header"><h1 itemProp="headline">Day 148 - Creating A Design System • Buttons</h1><div itemProp="datePublished">2021-05-28</div></header><section itemProp="articleBody" class="article__body"><p>Buttons are one of the primary ways of interaction on the web. We submit forms with buttons and perform common actions on the web. In this post we will take a look at how we will design button for this design system in SASS.</p>
+<h2>Core Button</h2>
+<p>First of all we will define the style for the core button which are the styles which remain the same in all buttons like padding and font size etc. In bootstrap <code>btn</code> class is the core button which will apply the core button styling and the class that comes next like <code>btn-primary</code> will only apply the background color and text color etc of the button.</p>
+<pre><code class="language-scss">$color-dark: black;
+$color-light: white;
+
+$paddin-btn: 0.25rem 1rem;
+$btn-min-width: 6rem;
+
+$btn-blue: var(--blue-500);
+$btn-blue-dark: var(--blue-600);
+
+$transtiton-btn: all 0.15s ease-in-out;
+</code></pre>
+<p>These are all the variables that will be used in this post example and follwing are the stylings for the core design of button.</p>
+<pre><code class="language-scss">.btn {
+  display: inline-block;
+  min-width: $btn-min-width;
+  font-weight: 500;
+  line-height: 1.5;
+  color: $color-dark;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: $paddin-btn;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: $transtiton-btn;
+
+  &#x26;:active {
+    animation: btn-active 250ms cubic-bezier(0.34, 1.61, 0.7, 1);
+  }
+}
+</code></pre>
+<p>This animation will make the button slide down a little when clicked.</p>
+<pre><code class="language-scss">@keyframes btn-click {
+  50% {
+    transform: translateY(1px);
+  }
+}
+</code></pre>
+<p>After defining the core button we now can define the colored buttons. These will be the classes that define the color of the buttons here too I will be borrowing name classes from bootstrap with classname as the color name prefixed with <code>btn</code> class.</p>
+<pre><code class="language-scss">.btn-blue {
+  background-color: $btn-blue;
+  color: $color-light;
+  border-color: $btn-blue;
+
+  &#x26;:hover {
+    background-color: $btn-blue-dark;
+  }
+}
+</code></pre>
+<h2>Button Variants</h2>
+<p>Now that we have a core button and the colored buttons we now can make variants of the button like a small button, a large button and outlined buttons etc.</p>
+<pre><code class="language-scss">.btn-blue-outline {
+  background-color: $color-light;
+  color: $btn-blue;
+  border-color: $btn-blue;
+
+  &#x26;:hover {
+    background-color: $btn-blue;
+    color: $color-light;
+  }
+}
+</code></pre>
+<p>Here the outlined button will have a transparent background and the text color will the color name from the class and on hover background color will change to text color with text color becoming white again.</p>
+<p>With small button we only need to decrease the padding and the font-size of the button.</p>
+<pre><code class="language-scss">$paddin-btn: 0.25rem 0.5rem;
+
+.btn-small {
+  font-size: $font-size-sm;
+  padding: $paddin-btn;
+}
+</code></pre>
+<p>Same for the large buttons.</p>
+<pre><code class="language-scss">$paddin-btn: 0.75rem 1.25rem;
+
+.btn-small {
+  font-size: $font-size-lg;
+  padding: $paddin-btn;
+}
+</code></pre>
+</section></article><hr/></main><footer class="footer"><div>Copyright © <!-- -->2021<!-- --> zainsci</div><div>Built with Next.js by<!-- --> <a href="https://zainsci.github.io" target="_blank" rel="noopener noreferrer">zainsci</a></div><div><div class="social__icons"><a href="https://twitter.com/zainsci" target="_blank" rel="noreferrer noopener"><img src="/blog/assets/svgs/twitter.svg" alt="twitter logo"/></a><a href="https://instagram.com/zainsci" target="_blank" rel="noreferrer noopener"><img src="/blog/assets/svgs/instagram.svg" alt="instagram logo"/></a><a href="https://github.com/zainsci" target="_blank" rel="noreferrer noopener"><img src="/blog/assets/svgs/github.svg" alt="github logo"/></a></div></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Day 148 - Creating A Design System • Buttons","date":"2021-05-28","slug":"day-149","content":"\u003cp\u003eButtons are one of the primary ways of interaction on the web. We submit forms with buttons and perform common actions on the web. In this post we will take a look at how we will design button for this design system in SASS.\u003c/p\u003e\n\u003ch2\u003eCore Button\u003c/h2\u003e\n\u003cp\u003eFirst of all we will define the style for the core button which are the styles which remain the same in all buttons like padding and font size etc. In bootstrap \u003ccode\u003ebtn\u003c/code\u003e class is the core button which will apply the core button styling and the class that comes next like \u003ccode\u003ebtn-primary\u003c/code\u003e will only apply the background color and text color etc of the button.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e$color-dark: black;\r\n$color-light: white;\r\n\r\n$paddin-btn: 0.25rem 1rem;\r\n$btn-min-width: 6rem;\r\n\r\n$btn-blue: var(--blue-500);\r\n$btn-blue-dark: var(--blue-600);\r\n\r\n$transtiton-btn: all 0.15s ease-in-out;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThese are all the variables that will be used in this post example and follwing are the stylings for the core design of button.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e.btn {\r\n  display: inline-block;\r\n  min-width: $btn-min-width;\r\n  font-weight: 500;\r\n  line-height: 1.5;\r\n  color: $color-dark;\r\n  text-align: center;\r\n  vertical-align: middle;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n  background-color: transparent;\r\n  border: 1px solid transparent;\r\n  padding: $paddin-btn;\r\n  font-size: 1rem;\r\n  border-radius: 0.25rem;\r\n  transition: $transtiton-btn;\r\n\r\n  \u0026#x26;:active {\r\n    animation: btn-active 250ms cubic-bezier(0.34, 1.61, 0.7, 1);\r\n  }\r\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis animation will make the button slide down a little when clicked.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e@keyframes btn-click {\r\n  50% {\r\n    transform: translateY(1px);\r\n  }\r\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAfter defining the core button we now can define the colored buttons. These will be the classes that define the color of the buttons here too I will be borrowing name classes from bootstrap with classname as the color name prefixed with \u003ccode\u003ebtn\u003c/code\u003e class.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e.btn-blue {\r\n  background-color: $btn-blue;\r\n  color: $color-light;\r\n  border-color: $btn-blue;\r\n\r\n  \u0026#x26;:hover {\r\n    background-color: $btn-blue-dark;\r\n  }\r\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003eButton Variants\u003c/h2\u003e\n\u003cp\u003eNow that we have a core button and the colored buttons we now can make variants of the button like a small button, a large button and outlined buttons etc.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e.btn-blue-outline {\r\n  background-color: $color-light;\r\n  color: $btn-blue;\r\n  border-color: $btn-blue;\r\n\r\n  \u0026#x26;:hover {\r\n    background-color: $btn-blue;\r\n    color: $color-light;\r\n  }\r\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eHere the outlined button will have a transparent background and the text color will the color name from the class and on hover background color will change to text color with text color becoming white again.\u003c/p\u003e\n\u003cp\u003eWith small button we only need to decrease the padding and the font-size of the button.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e$paddin-btn: 0.25rem 0.5rem;\r\n\r\n.btn-small {\r\n  font-size: $font-size-sm;\r\n  padding: $paddin-btn;\r\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSame for the large buttons.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-scss\"\u003e$paddin-btn: 0.75rem 1.25rem;\r\n\r\n.btn-small {\r\n  font-size: $font-size-lg;\r\n  padding: $paddin-btn;\r\n}\n\u003c/code\u003e\u003c/pre\u003e\n","tags":["Design-System","Design","CSS"]}},"__N_SSG":true},"page":"/posts/[slug]","query":{"slug":"day-149"},"buildId":"iCtEfFfjBJbYjL8njtG0L","assetPrefix":"/blog","isFallback":false,"gsp":true}</script><script nomodule="" src="/blog/_next/static/chunks/polyfills-8683bd742a84c1edd48c.js"></script><script src="/blog/_next/static/chunks/webpack-d2ea490c71c2efdd01c9.js" async=""></script><script src="/blog/_next/static/chunks/framework-9bf9f61c21c28db23d5b.js" async=""></script><script src="/blog/_next/static/chunks/commons-0392153403293a8cddd0.js" async=""></script><script src="/blog/_next/static/chunks/main-06aae30c278b6ca2f76a.js" async=""></script><script src="/blog/_next/static/chunks/pages/_app-d7d985800563919559a7.js" async=""></script><script src="/blog/_next/static/chunks/362-161b6498af4ad75ed6ae.js" async=""></script><script src="/blog/_next/static/chunks/pages/posts/%5Bslug%5D-143c25a509ce81de2368.js" async=""></script><script src="/blog/_next/static/iCtEfFfjBJbYjL8njtG0L/_buildManifest.js" async=""></script><script src="/blog/_next/static/iCtEfFfjBJbYjL8njtG0L/_ssgManifest.js" async=""></script></body></html>
